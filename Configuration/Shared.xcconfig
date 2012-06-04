@@ -1,0 +1,28 @@
+//
+//  Shared.xcconfig
+//  TechRadar
+//
+//  Created by Cyril Wei on 6/4/12.
+//  Copyright (c) 2012 ThoughtWorks. All rights reserved.
+//
+ALWAYS_SEARCH_USER_PATHS = NO
+ARCHS[sdk=iphoneos*] = armv7
+ARCHS[sdk=iphonesimulator*] = i386
+
+SDKROOT = iphoneos
+IPHONEOS_DEPLOYMENT_TARGET = 5.0
+TARGETED_DEVICE_FAMILY = 2
+
+GCC_C_LANGUAGE_STANDARD = gnu99
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+GCC_WARN_ABOUT_RETURN_TYPE = YES
+GCC_WARN_UNINITIALIZED_AUTOS = YES
+GCC_WARN_UNUSED_VARIABLE = YES
+
+GCC_PREFIX_HEADER = TechRadar/TechRadar-Prefix.pch
+INFOPLIST_FILE = TechRadar/TechRadar-Info.plist
+
+GCC_PRECOMPILE_PREFIX_HEADER = YES
+IPHONEOS_DEPLOYMENT_TARGET = 5.0
+PRODUCT_NAME = $(TARGET_NAME)
+WRAPPER_EXTENSION = app

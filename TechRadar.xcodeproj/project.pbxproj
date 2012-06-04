@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F19E1411157CA41100B49AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1410157CA41100B49AE5 /* UIKit.framework */; };
+		F19E1413157CA41100B49AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1412157CA41100B49AE5 /* Foundation.framework */; };
+		F19E1415157CA41100B49AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1414157CA41100B49AE5 /* CoreGraphics.framework */; };
+		F19E1417157CA41100B49AE5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1416157CA41100B49AE5 /* CoreData.framework */; };
+		F19E141D157CA41100B49AE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19E141B157CA41100B49AE5 /* InfoPlist.strings */; };
+		F19E141F157CA41100B49AE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F19E141E157CA41100B49AE5 /* main.m */; };
+		F19E1423157CA41100B49AE5 /* TechRadarAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F19E1422157CA41100B49AE5 /* TechRadarAppDelegate.m */; };
+		F19E1426157CA41100B49AE5 /* TechRadar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F19E1424157CA41100B49AE5 /* TechRadar.xcdatamodeld */; };
+		F19E142E157CA41100B49AE5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E142D157CA41100B49AE5 /* SenTestingKit.framework */; };
+		F19E142F157CA41100B49AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1410157CA41100B49AE5 /* UIKit.framework */; };
+		F19E1430157CA41100B49AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1412157CA41100B49AE5 /* Foundation.framework */; };
+		F19E1431157CA41100B49AE5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1416157CA41100B49AE5 /* CoreData.framework */; };
+		F19E1439157CA41100B49AE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F19E1437157CA41100B49AE5 /* InfoPlist.strings */; };
+		F19E143C157CA41100B49AE5 /* TechRadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F19E143B157CA41100B49AE5 /* TechRadarTests.m */; };
+		F19E1453157CAC2C00B49AE5 /* icon_app.png in Resources */ = {isa = PBXBuildFile; fileRef = F19E1451157CAC2C00B49AE5 /* icon_app.png */; };
+		F19E1454157CAC2C00B49AE5 /* icon_app@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F19E1452157CAC2C00B49AE5 /* icon_app@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F19E1432157CA41100B49AE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F19E1403157CA41100B49AE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F19E140B157CA41100B49AE5;
+			remoteInfo = TechRadar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F149E90F157CBB04006099C3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		F149E910157CBB10006099C3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		F149E911157CBB1C006099C3 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		F19E140C157CA41100B49AE5 /* TechRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19E1410157CA41100B49AE5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F19E1412157CA41100B49AE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F19E1414157CA41100B49AE5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F19E1416157CA41100B49AE5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F19E141A157CA41100B49AE5 /* TechRadar-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TechRadar-Info.plist"; sourceTree = "<group>"; };
+		F19E141C157CA41100B49AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F19E141E157CA41100B49AE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F19E1420157CA41100B49AE5 /* TechRadar-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TechRadar-Prefix.pch"; sourceTree = "<group>"; };
+		F19E1421157CA41100B49AE5 /* TechRadarAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TechRadarAppDelegate.h; sourceTree = "<group>"; };
+		F19E1422157CA41100B49AE5 /* TechRadarAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TechRadarAppDelegate.m; sourceTree = "<group>"; };
+		F19E1425157CA41100B49AE5 /* TechRadar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TechRadar.xcdatamodel; sourceTree = "<group>"; };
+		F19E142C157CA41100B49AE5 /* TechRadarTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechRadarTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F19E142D157CA41100B49AE5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		F19E1436157CA41100B49AE5 /* TechRadarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TechRadarTests-Info.plist"; sourceTree = "<group>"; };
+		F19E1438157CA41100B49AE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F19E143A157CA41100B49AE5 /* TechRadarTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TechRadarTests.h; sourceTree = "<group>"; };
+		F19E143B157CA41100B49AE5 /* TechRadarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TechRadarTests.m; sourceTree = "<group>"; };
+		F19E1451157CAC2C00B49AE5 /* icon_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app.png; sourceTree = "<group>"; };
+		F19E1452157CAC2C00B49AE5 /* icon_app@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_app@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F19E1409157CA41100B49AE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19E1411157CA41100B49AE5 /* UIKit.framework in Frameworks */,
+				F19E1413157CA41100B49AE5 /* Foundation.framework in Frameworks */,
+				F19E1415157CA41100B49AE5 /* CoreGraphics.framework in Frameworks */,
+				F19E1417157CA41100B49AE5 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F19E1428157CA41100B49AE5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19E142E157CA41100B49AE5 /* SenTestingKit.framework in Frameworks */,
+				F19E142F157CA41100B49AE5 /* UIKit.framework in Frameworks */,
+				F19E1430157CA41100B49AE5 /* Foundation.framework in Frameworks */,
+				F19E1431157CA41100B49AE5 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F19E1401157CA41100B49AE5 = {
+			isa = PBXGroup;
+			children = (
+				F19E144C157CAA0B00B49AE5 /* Resource */,
+				F19E144A157CA67500B49AE5 /* Configuration */,
+				F19E1418157CA41100B49AE5 /* TechRadar */,
+				F19E1434157CA41100B49AE5 /* TechRadarTests */,
+				F19E140F157CA41100B49AE5 /* Frameworks */,
+				F19E140D157CA41100B49AE5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F19E140D157CA41100B49AE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F19E140C157CA41100B49AE5 /* TechRadar.app */,
+				F19E142C157CA41100B49AE5 /* TechRadarTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F19E140F157CA41100B49AE5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F19E1410157CA41100B49AE5 /* UIKit.framework */,
+				F19E1412157CA41100B49AE5 /* Foundation.framework */,
+				F19E1414157CA41100B49AE5 /* CoreGraphics.framework */,
+				F19E1416157CA41100B49AE5 /* CoreData.framework */,
+				F19E142D157CA41100B49AE5 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F19E1418157CA41100B49AE5 /* TechRadar */ = {
+			isa = PBXGroup;
+			children = (
+				F19E144B157CA92100B49AE5 /* Application */,
+				F19E1424157CA41100B49AE5 /* TechRadar.xcdatamodeld */,
+				F19E1419157CA41100B49AE5 /* Supporting Files */,
+			);
+			path = TechRadar;
+			sourceTree = "<group>";
+		};
+		F19E1419157CA41100B49AE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F19E141A157CA41100B49AE5 /* TechRadar-Info.plist */,
+				F19E141B157CA41100B49AE5 /* InfoPlist.strings */,
+				F19E141E157CA41100B49AE5 /* main.m */,
+				F19E1420157CA41100B49AE5 /* TechRadar-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F19E1434157CA41100B49AE5 /* TechRadarTests */ = {
+			isa = PBXGroup;
+			children = (
+				F19E143A157CA41100B49AE5 /* TechRadarTests.h */,
+				F19E143B157CA41100B49AE5 /* TechRadarTests.m */,
+				F19E1435157CA41100B49AE5 /* Supporting Files */,
+			);
+			path = TechRadarTests;
+			sourceTree = "<group>";
+		};
+		F19E1435157CA41100B49AE5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F19E1436157CA41100B49AE5 /* TechRadarTests-Info.plist */,
+				F19E1437157CA41100B49AE5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F19E144A157CA67500B49AE5 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				F149E90F157CBB04006099C3 /* Debug.xcconfig */,
+				F149E910157CBB10006099C3 /* Release.xcconfig */,
+				F149E911157CBB1C006099C3 /* Shared.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		F19E144B157CA92100B49AE5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F19E1421157CA41100B49AE5 /* TechRadarAppDelegate.h */,
+				F19E1422157CA41100B49AE5 /* TechRadarAppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		F19E144C157CAA0B00B49AE5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F19E1451157CAC2C00B49AE5 /* icon_app.png */,
+				F19E1452157CAC2C00B49AE5 /* icon_app@2x.png */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F19E140B157CA41100B49AE5 /* TechRadar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F19E143F157CA41100B49AE5 /* Build configuration list for PBXNativeTarget "TechRadar" */;
+			buildPhases = (
+				F19E1408157CA41100B49AE5 /* Sources */,
+				F19E1409157CA41100B49AE5 /* Frameworks */,
+				F19E140A157CA41100B49AE5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TechRadar;
+			productName = TechRadar;
+			productReference = F19E140C157CA41100B49AE5 /* TechRadar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F19E142B157CA41100B49AE5 /* TechRadarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F19E1442157CA41100B49AE5 /* Build configuration list for PBXNativeTarget "TechRadarTests" */;
+			buildPhases = (
+				F19E1427157CA41100B49AE5 /* Sources */,
+				F19E1428157CA41100B49AE5 /* Frameworks */,
+				F19E1429157CA41100B49AE5 /* Resources */,
+				F19E142A157CA41100B49AE5 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F19E1433157CA41100B49AE5 /* PBXTargetDependency */,
+			);
+			name = TechRadarTests;
+			productName = TechRadarTests;
+			productReference = F19E142C157CA41100B49AE5 /* TechRadarTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F19E1403157CA41100B49AE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TW;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = ThoughtWorks;
+			};
+			buildConfigurationList = F19E1406157CA41100B49AE5 /* Build configuration list for PBXProject "TechRadar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F19E1401157CA41100B49AE5;
+			productRefGroup = F19E140D157CA41100B49AE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F19E140B157CA41100B49AE5 /* TechRadar */,
+				F19E142B157CA41100B49AE5 /* TechRadarTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F19E140A157CA41100B49AE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19E141D157CA41100B49AE5 /* InfoPlist.strings in Resources */,
+				F19E1453157CAC2C00B49AE5 /* icon_app.png in Resources */,
+				F19E1454157CAC2C00B49AE5 /* icon_app@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F19E1429157CA41100B49AE5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19E1439157CA41100B49AE5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F19E142A157CA41100B49AE5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F19E1408157CA41100B49AE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19E141F157CA41100B49AE5 /* main.m in Sources */,
+				F19E1423157CA41100B49AE5 /* TechRadarAppDelegate.m in Sources */,
+				F19E1426157CA41100B49AE5 /* TechRadar.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F19E1427157CA41100B49AE5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F19E143C157CA41100B49AE5 /* TechRadarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F19E1433157CA41100B49AE5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F19E140B157CA41100B49AE5 /* TechRadar */;
+			targetProxy = F19E1432157CA41100B49AE5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F19E141B157CA41100B49AE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F19E141C157CA41100B49AE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F19E1437157CA41100B49AE5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F19E1438157CA41100B49AE5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F19E143D157CA41100B49AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F149E90F157CBB04006099C3 /* Debug.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		F19E143E157CA41100B49AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F149E910157CBB10006099C3 /* Release.xcconfig */;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		F19E1440157CA41100B49AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		F19E1441157CA41100B49AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		F19E1443157CA41100B49AE5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TechRadar.app/TechRadar";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TechRadar/TechRadar-Prefix.pch";
+				INFOPLIST_FILE = "TechRadarTests/TechRadarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		F19E1444157CA41100B49AE5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TechRadar.app/TechRadar";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TechRadar/TechRadar-Prefix.pch";
+				INFOPLIST_FILE = "TechRadarTests/TechRadarTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F19E1406157CA41100B49AE5 /* Build configuration list for PBXProject "TechRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19E143D157CA41100B49AE5 /* Debug */,
+				F19E143E157CA41100B49AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F19E143F157CA41100B49AE5 /* Build configuration list for PBXNativeTarget "TechRadar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19E1440157CA41100B49AE5 /* Debug */,
+				F19E1441157CA41100B49AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F19E1442157CA41100B49AE5 /* Build configuration list for PBXNativeTarget "TechRadarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F19E1443157CA41100B49AE5 /* Debug */,
+				F19E1444157CA41100B49AE5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F19E1424157CA41100B49AE5 /* TechRadar.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F19E1425157CA41100B49AE5 /* TechRadar.xcdatamodel */,
+			);
+			currentVersion = F19E1425157CA41100B49AE5 /* TechRadar.xcdatamodel */;
+			path = TechRadar.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F19E1403157CA41100B49AE5 /* Project object */;
+}

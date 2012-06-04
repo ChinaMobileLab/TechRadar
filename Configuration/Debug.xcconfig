@@ -1,0 +1,19 @@
+//
+//  Debug.xcconfig
+//  TechRadar
+//
+//  Created by Cyril Wei on 6/4/12.
+//  Copyright (c) 2012 ThoughtWorks. All rights reserved.
+//
+#include "Shared.xcconfig"
+
+CODE_SIGN_IDENTITY = iPhone Developer
+COPY_PHASE_STRIP = NO
+
+GCC_DYNAMIC_NO_PIC = NO
+GCC_OPTIMIZATION_LEVEL = 0
+
+GCC_PREPROCESSOR_DEFINITIONS = DEBUG=1
+GCC_SYMBOLS_PRIVATE_EXTERN = NO
+
+
