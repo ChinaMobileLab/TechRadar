@@ -7,6 +7,7 @@
 //
 
 #import "TechRadarAppDelegate.h"
+#import "TechRadarCategoryControllerViewController.h"
 
 @implementation TechRadarAppDelegate
 
@@ -27,8 +28,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    
+    TechRadarCategoryControllerViewController *mainViewController = [[TechRadarCategoryControllerViewController alloc] init];
+    
+    self.window.rootViewController = mainViewController;
+    [mainViewController release];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

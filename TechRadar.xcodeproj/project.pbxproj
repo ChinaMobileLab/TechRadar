@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492BCD76157CF0A6003A8CF7 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD75157CF0A6003A8CF7 /* background.png */; };
+		492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */; };
+		492BCD7B157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */; };
+		492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD7C157DB727003A8CF7 /* btn_central_button.png */; };
 		F19E1411157CA41100B49AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1410157CA41100B49AE5 /* UIKit.framework */; };
 		F19E1413157CA41100B49AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1412157CA41100B49AE5 /* Foundation.framework */; };
 		F19E1415157CA41100B49AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1414157CA41100B49AE5 /* CoreGraphics.framework */; };
@@ -36,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		492BCD75157CF0A6003A8CF7 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		492BCD77157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarCategoryControllerViewController.h; sourceTree = "<group>"; };
+		492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarCategoryControllerViewController.m; sourceTree = "<group>"; };
+		492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TechRadarCategoryControllerViewController.xib; sourceTree = "<group>"; };
+		492BCD7C157DB727003A8CF7 /* btn_central_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_central_button.png; sourceTree = "<group>"; };
 		F149E90F157CBB04006099C3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		F149E910157CBB10006099C3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		F149E911157CBB1C006099C3 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
@@ -87,6 +96,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		492BCD71157CED34003A8CF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				492BCD77157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.h */,
+				492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */,
+				492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F19E1401157CA41100B49AE5 = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +142,7 @@
 		F19E1418157CA41100B49AE5 /* TechRadar */ = {
 			isa = PBXGroup;
 			children = (
+				492BCD71157CED34003A8CF7 /* Controller */,
 				F19E144B157CA92100B49AE5 /* Application */,
 				F19E1424157CA41100B49AE5 /* TechRadar.xcdatamodeld */,
 				F19E1419157CA41100B49AE5 /* Supporting Files */,
@@ -182,6 +202,8 @@
 		F19E144C157CAA0B00B49AE5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				492BCD75157CF0A6003A8CF7 /* background.png */,
+				492BCD7C157DB727003A8CF7 /* btn_central_button.png */,
 				F19E1451157CAC2C00B49AE5 /* icon_app.png */,
 				F19E1452157CAC2C00B49AE5 /* icon_app@2x.png */,
 			);
@@ -263,6 +285,9 @@
 				F19E141D157CA41100B49AE5 /* InfoPlist.strings in Resources */,
 				F19E1453157CAC2C00B49AE5 /* icon_app.png in Resources */,
 				F19E1454157CAC2C00B49AE5 /* icon_app@2x.png in Resources */,
+				492BCD76157CF0A6003A8CF7 /* background.png in Resources */,
+				492BCD7B157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib in Resources */,
+				492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +325,7 @@
 				F19E141F157CA41100B49AE5 /* main.m in Sources */,
 				F19E1423157CA41100B49AE5 /* TechRadarAppDelegate.m in Sources */,
 				F19E1426157CA41100B49AE5 /* TechRadar.xcdatamodeld in Sources */,
+				492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
