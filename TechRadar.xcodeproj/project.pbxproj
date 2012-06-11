@@ -11,6 +11,7 @@
 		492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */; };
 		492BCD7B157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */; };
 		492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD7C157DB727003A8CF7 /* btn_central_button.png */; };
+		4977E9481585C47A007A7E52 /* TechRadarContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4977E9471585C47A007A7E52 /* TechRadarContent.m */; };
 		F10565B0157E2DAE009D4C31 /* TechRadarItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */; };
 		F10565B5157E312F009D4C31 /* TechRadarItemsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565B4157E312F009D4C31 /* TechRadarItemsPanel.m */; };
 		F10565B7157E325D009D4C31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10565B6157E325D009D4C31 /* QuartzCore.framework */; };
@@ -49,6 +50,8 @@
 		492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TechRadarCategoryControllerViewController.xib; sourceTree = "<group>"; };
 		492BCD7C157DB727003A8CF7 /* btn_central_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_central_button.png; sourceTree = "<group>"; };
 		4977E8D515839A53007A7E52 /* TechRadarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarConstants.h; sourceTree = "<group>"; };
+		4977E9461585C47A007A7E52 /* TechRadarContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarContent.h; sourceTree = "<group>"; };
+		4977E9471585C47A007A7E52 /* TechRadarContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarContent.m; sourceTree = "<group>"; };
 		F10565AE157E2DAD009D4C31 /* TechRadarItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarItemsViewController.h; sourceTree = "<group>"; };
 		F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarItemsViewController.m; sourceTree = "<group>"; };
 		F10565B3157E312F009D4C31 /* TechRadarItemsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarItemsPanel.h; sourceTree = "<group>"; };
@@ -121,6 +124,8 @@
 		4977E8D315839702007A7E52 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				4977E9461585C47A007A7E52 /* TechRadarContent.h */,
+				4977E9471585C47A007A7E52 /* TechRadarContent.m */,
 				4977E8D515839A53007A7E52 /* TechRadarConstants.h */,
 			);
 			name = Domain;
@@ -360,6 +365,7 @@
 				492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */,
 				F10565B0157E2DAE009D4C31 /* TechRadarItemsViewController.m in Sources */,
 				F10565B5157E312F009D4C31 /* TechRadarItemsPanel.m in Sources */,
+				4977E9481585C47A007A7E52 /* TechRadarContent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
