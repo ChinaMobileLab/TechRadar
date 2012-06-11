@@ -8,6 +8,7 @@
 
 #import "TechRadarAppDelegate.h"
 #import "TechRadarCategoryControllerViewController.h"
+#import "TechRadarItemsViewController.h"
 
 @implementation TechRadarAppDelegate
 
@@ -30,6 +31,8 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
     TechRadarCategoryControllerViewController *mainViewController = [[TechRadarCategoryControllerViewController alloc] init];
+  
+//    TechRadarItemsViewController *mainViewController = [[TechRadarItemsViewController alloc] init];
     
     self.window.rootViewController = mainViewController;
     [mainViewController release];

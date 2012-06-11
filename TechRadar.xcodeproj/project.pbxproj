@@ -11,6 +11,9 @@
 		492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */; };
 		492BCD7B157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */; };
 		492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD7C157DB727003A8CF7 /* btn_central_button.png */; };
+		F10565B0157E2DAE009D4C31 /* TechRadarItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */; };
+		F10565B5157E312F009D4C31 /* TechRadarItemsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565B4157E312F009D4C31 /* TechRadarItemsPanel.m */; };
+		F10565B7157E325D009D4C31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10565B6157E325D009D4C31 /* QuartzCore.framework */; };
 		F19E1411157CA41100B49AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1410157CA41100B49AE5 /* UIKit.framework */; };
 		F19E1413157CA41100B49AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1412157CA41100B49AE5 /* Foundation.framework */; };
 		F19E1415157CA41100B49AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1414157CA41100B49AE5 /* CoreGraphics.framework */; };
@@ -46,6 +49,11 @@
 		492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TechRadarCategoryControllerViewController.xib; sourceTree = "<group>"; };
 		492BCD7C157DB727003A8CF7 /* btn_central_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_central_button.png; sourceTree = "<group>"; };
 		4977E8D515839A53007A7E52 /* TechRadarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarConstants.h; sourceTree = "<group>"; };
+		F10565AE157E2DAD009D4C31 /* TechRadarItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarItemsViewController.h; sourceTree = "<group>"; };
+		F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarItemsViewController.m; sourceTree = "<group>"; };
+		F10565B3157E312F009D4C31 /* TechRadarItemsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarItemsPanel.h; sourceTree = "<group>"; };
+		F10565B4157E312F009D4C31 /* TechRadarItemsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarItemsPanel.m; sourceTree = "<group>"; };
+		F10565B6157E325D009D4C31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F149E90F157CBB04006099C3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		F149E910157CBB10006099C3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		F149E911157CBB1C006099C3 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
@@ -76,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F10565B7157E325D009D4C31 /* QuartzCore.framework in Frameworks */,
 				F19E1411157CA41100B49AE5 /* UIKit.framework in Frameworks */,
 				F19E1413157CA41100B49AE5 /* Foundation.framework in Frameworks */,
 				F19E1415157CA41100B49AE5 /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +112,8 @@
 				492BCD77157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.h */,
 				492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */,
 				492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */,
+				F10565AE157E2DAD009D4C31 /* TechRadarItemsViewController.h */,
+				F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -113,6 +124,15 @@
 				4977E8D515839A53007A7E52 /* TechRadarConstants.h */,
 			);
 			name = Domain;
+			sourceTree = "<group>";
+		};
+		F10565B2157E30FC009D4C31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F10565B3157E312F009D4C31 /* TechRadarItemsPanel.h */,
+				F10565B4157E312F009D4C31 /* TechRadarItemsPanel.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		F19E1401157CA41100B49AE5 = {
@@ -139,6 +159,7 @@
 		F19E140F157CA41100B49AE5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F10565B6157E325D009D4C31 /* QuartzCore.framework */,
 				F19E1410157CA41100B49AE5 /* UIKit.framework */,
 				F19E1412157CA41100B49AE5 /* Foundation.framework */,
 				F19E1414157CA41100B49AE5 /* CoreGraphics.framework */,
@@ -152,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4977E8D315839702007A7E52 /* Domain */,
+				F10565B2157E30FC009D4C31 /* View */,
 				492BCD71157CED34003A8CF7 /* Controller */,
 				F19E144B157CA92100B49AE5 /* Application */,
 				F19E1424157CA41100B49AE5 /* TechRadar.xcdatamodeld */,
@@ -336,6 +358,8 @@
 				F19E1423157CA41100B49AE5 /* TechRadarAppDelegate.m in Sources */,
 				F19E1426157CA41100B49AE5 /* TechRadar.xcdatamodeld in Sources */,
 				492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */,
+				F10565B0157E2DAE009D4C31 /* TechRadarItemsViewController.m in Sources */,
+				F10565B5157E312F009D4C31 /* TechRadarItemsPanel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
