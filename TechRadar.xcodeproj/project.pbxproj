@@ -45,6 +45,7 @@
 		492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarCategoryControllerViewController.m; sourceTree = "<group>"; };
 		492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TechRadarCategoryControllerViewController.xib; sourceTree = "<group>"; };
 		492BCD7C157DB727003A8CF7 /* btn_central_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_central_button.png; sourceTree = "<group>"; };
+		4977E8D515839A53007A7E52 /* TechRadarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarConstants.h; sourceTree = "<group>"; };
 		F149E90F157CBB04006099C3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		F149E910157CBB10006099C3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		F149E911157CBB1C006099C3 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
@@ -106,6 +107,14 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		4977E8D315839702007A7E52 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4977E8D515839A53007A7E52 /* TechRadarConstants.h */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
 		F19E1401157CA41100B49AE5 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +151,7 @@
 		F19E1418157CA41100B49AE5 /* TechRadar */ = {
 			isa = PBXGroup;
 			children = (
+				4977E8D315839702007A7E52 /* Domain */,
 				492BCD71157CED34003A8CF7 /* Controller */,
 				F19E144B157CA92100B49AE5 /* Application */,
 				F19E1424157CA41100B49AE5 /* TechRadar.xcdatamodeld */,

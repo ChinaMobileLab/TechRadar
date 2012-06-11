@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TechRadarCategoryControllerViewController : UIViewController
+@interface TechRadarCategoryControllerViewController : UIViewController <UIGestureRecognizerDelegate>
+{
+    CGFloat firstX;
+    CGFloat firstY;
+}
 
 @property (retain, nonatomic) IBOutlet UIImageView *CentralButton;
 
+
+@property (retain, nonatomic) IBOutlet UILabel *TechnologyLabel;
+@property (retain, nonatomic) IBOutlet UILabel *PlatformLabel;
+@property (retain, nonatomic) IBOutlet UILabel *ToolLabel;
+@property (retain, nonatomic) IBOutlet UILabel *LanguageLabel;
 @end
