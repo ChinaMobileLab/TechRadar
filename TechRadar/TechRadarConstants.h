@@ -16,5 +16,7 @@
 
 #define TechRadarSideButtonX 0.0f
 #define TechRadarSideButtonY 374.0f
+#define TechRadarSideButtonWidth 150.0f
+#define TechRadarSideButtonHeight 150.0f
 
 #define TechRadarCentralButtonAcceptedX 50.0f

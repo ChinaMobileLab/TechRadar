@@ -18,7 +18,7 @@
 - (void)loadView
 {
     UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn_central_button.png"]];
-    view.frame = CGRectMake(0.0f, 0.0f, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
+    view.frame = CGRectMake(0.0f, 0.0f, TechRadarSideButtonWidth, TechRadarSideButtonHeight);
 
     view.center = CGPointMake(TechRadarSideButtonX, TechRadarSideButtonY);
     self.view = view;

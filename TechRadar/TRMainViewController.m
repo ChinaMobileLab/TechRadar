@@ -44,7 +44,7 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         CGFloat duration = 0.5f * log10(fabs(10.0f * fabs(1.0f - percent) + 1.0f));
         [UIView animateWithDuration:duration animations:^ {
-            [self.handleViewController.view setCenter:CGPointMake(TechRadarCentralButtonX, TechRadarCentralButtonY)];
+            self.handleViewController.view.frame = CGRectMake(TechRadarCentralButtonX - TechRadarCentralButtonWidth/2, TechRadarCentralButtonY - TechRadarCentralButtonHeight/2, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
             [self.coverViewController changeToPercent:1.0f sender:sender];
             self.coverViewController.view.alpha = 1.0f;
         }];
@@ -53,7 +53,7 @@
     handleController.moveDone = ^(id sender, CGFloat percent) {
         CGFloat duration = 3.0f * fabs(percent);
         [UIView animateWithDuration:duration animations:^{
-            [self.handleViewController.view setCenter:CGPointMake(TechRadarSideButtonX, TechRadarSideButtonY)];
+            self.handleViewController.view.frame = CGRectMake(TechRadarSideButtonX - TechRadarSideButtonWidth/2, TechRadarSideButtonY - TechRadarSideButtonHeight/2, TechRadarSideButtonWidth, TechRadarSideButtonHeight);
             [self.coverViewController changeToPercent:0.0f sender:sender];
             self.coverViewController.view.alpha = 0.0f;
         } completion:^(BOOL finished) {
@@ -65,6 +65,10 @@
     handleController.moveToPercent = ^(id sender, CGFloat percent) {
         [self.coverViewController changeToPercent:percent sender:sender];
         self.coverViewController.view.alpha = percent;
+        self.handleViewController.view.frame = CGRectMake(0.0f, 0.0f, 
+            TechRadarSideButtonWidth + (TechRadarCentralButtonWidth - TechRadarSideButtonWidth) * percent, 
+            TechRadarSideButtonHeight + (TechRadarCentralButtonHeight - TechRadarSideButtonHeight) * percent);
+        [self.handleViewController.view setCenter:CGPointMake(TechRadarCentralButtonX * percent, TechRadarCentralButtonY)];
     };
     
     self.handleViewController = handleController;
