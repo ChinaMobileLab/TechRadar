@@ -7,8 +7,7 @@
 //
 
 #import "TechRadarAppDelegate.h"
-#import "TechRadarCategoryControllerViewController.h"
-#import "TechRadarItemsViewController.h"
+#import "TRMainViewController.h"
 
 @implementation TechRadarAppDelegate
 
@@ -28,12 +27,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    
-    TechRadarCategoryControllerViewController *mainViewController = [[TechRadarCategoryControllerViewController alloc] init];
-  
-//    TechRadarItemsViewController *mainViewController = [[TechRadarItemsViewController alloc] init];
-    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
+    [window release];
+        
+    TRMainViewController *mainViewController = [[TRMainViewController alloc] init];
+
     self.window.rootViewController = mainViewController;
     [mainViewController release];
     

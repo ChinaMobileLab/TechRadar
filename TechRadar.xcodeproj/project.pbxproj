@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		492BCD76157CF0A6003A8CF7 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD75157CF0A6003A8CF7 /* background.png */; };
-		492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */; };
-		492BCD7B157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */; };
+		492BCD7A157DB1B9003A8CF7 /* TRCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 492BCD78157DB1B9003A8CF7 /* TRCategoryViewController.m */; };
+		492BCD7B157DB1B9003A8CF7 /* TRCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD79157DB1B9003A8CF7 /* TRCategoryViewController.xib */; };
 		492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 492BCD7C157DB727003A8CF7 /* btn_central_button.png */; };
 		4977E9481585C47A007A7E52 /* TechRadarContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4977E9471585C47A007A7E52 /* TechRadarContent.m */; };
-		F10565B0157E2DAE009D4C31 /* TechRadarItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */; };
+		F10565B0157E2DAE009D4C31 /* TRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565AF157E2DAE009D4C31 /* TRItemsViewController.m */; };
 		F10565B5157E312F009D4C31 /* TechRadarItemsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565B4157E312F009D4C31 /* TechRadarItemsPanel.m */; };
 		F10565B7157E325D009D4C31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10565B6157E325D009D4C31 /* QuartzCore.framework */; };
+		F1383C09158C9CD4001A1E06 /* TRHandleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1383C08158C9CD4001A1E06 /* TRHandleViewController.m */; };
+		F1383C1A158CAFC6001A1E06 /* TRMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1383C19158CAFC6001A1E06 /* TRMenuViewController.m */; };
 		F19E1411157CA41100B49AE5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1410157CA41100B49AE5 /* UIKit.framework */; };
 		F19E1413157CA41100B49AE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1412157CA41100B49AE5 /* Foundation.framework */; };
 		F19E1415157CA41100B49AE5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19E1414157CA41100B49AE5 /* CoreGraphics.framework */; };
@@ -31,6 +33,7 @@
 		F19E143C157CA41100B49AE5 /* TechRadarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F19E143B157CA41100B49AE5 /* TechRadarTests.m */; };
 		F19E1453157CAC2C00B49AE5 /* icon_app.png in Resources */ = {isa = PBXBuildFile; fileRef = F19E1451157CAC2C00B49AE5 /* icon_app.png */; };
 		F19E1454157CAC2C00B49AE5 /* icon_app@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F19E1452157CAC2C00B49AE5 /* icon_app@2x.png */; };
+		F1DDF2C515860780007F0412 /* TRMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DDF2C415860780007F0412 /* TRMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,18 +48,22 @@
 
 /* Begin PBXFileReference section */
 		492BCD75157CF0A6003A8CF7 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		492BCD77157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarCategoryControllerViewController.h; sourceTree = "<group>"; };
-		492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarCategoryControllerViewController.m; sourceTree = "<group>"; };
-		492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TechRadarCategoryControllerViewController.xib; sourceTree = "<group>"; };
+		492BCD77157DB1B9003A8CF7 /* TRCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRCategoryViewController.h; sourceTree = "<group>"; };
+		492BCD78157DB1B9003A8CF7 /* TRCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRCategoryViewController.m; sourceTree = "<group>"; };
+		492BCD79157DB1B9003A8CF7 /* TRCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRCategoryViewController.xib; sourceTree = "<group>"; };
 		492BCD7C157DB727003A8CF7 /* btn_central_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_central_button.png; sourceTree = "<group>"; };
 		4977E8D515839A53007A7E52 /* TechRadarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarConstants.h; sourceTree = "<group>"; };
 		4977E9461585C47A007A7E52 /* TechRadarContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarContent.h; sourceTree = "<group>"; };
 		4977E9471585C47A007A7E52 /* TechRadarContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarContent.m; sourceTree = "<group>"; };
-		F10565AE157E2DAD009D4C31 /* TechRadarItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarItemsViewController.h; sourceTree = "<group>"; };
-		F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarItemsViewController.m; sourceTree = "<group>"; };
+		F10565AE157E2DAD009D4C31 /* TRItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRItemsViewController.h; sourceTree = "<group>"; };
+		F10565AF157E2DAE009D4C31 /* TRItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRItemsViewController.m; sourceTree = "<group>"; };
 		F10565B3157E312F009D4C31 /* TechRadarItemsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TechRadarItemsPanel.h; sourceTree = "<group>"; };
 		F10565B4157E312F009D4C31 /* TechRadarItemsPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TechRadarItemsPanel.m; sourceTree = "<group>"; };
 		F10565B6157E325D009D4C31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F1383C07158C9CD4001A1E06 /* TRHandleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRHandleViewController.h; sourceTree = "<group>"; };
+		F1383C08158C9CD4001A1E06 /* TRHandleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRHandleViewController.m; sourceTree = "<group>"; };
+		F1383C18158CAFC6001A1E06 /* TRMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMenuViewController.h; sourceTree = "<group>"; };
+		F1383C19158CAFC6001A1E06 /* TRMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMenuViewController.m; sourceTree = "<group>"; };
 		F149E90F157CBB04006099C3 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		F149E910157CBB10006099C3 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		F149E911157CBB1C006099C3 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
@@ -80,6 +87,8 @@
 		F19E143B157CA41100B49AE5 /* TechRadarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TechRadarTests.m; sourceTree = "<group>"; };
 		F19E1451157CAC2C00B49AE5 /* icon_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_app.png; sourceTree = "<group>"; };
 		F19E1452157CAC2C00B49AE5 /* icon_app@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_app@2x.png"; sourceTree = "<group>"; };
+		F1DDF2C315860780007F0412 /* TRMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRMainViewController.h; sourceTree = "<group>"; };
+		F1DDF2C415860780007F0412 /* TRMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,11 +121,17 @@
 		492BCD71157CED34003A8CF7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				492BCD77157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.h */,
-				492BCD78157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m */,
-				492BCD79157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib */,
-				F10565AE157E2DAD009D4C31 /* TechRadarItemsViewController.h */,
-				F10565AF157E2DAE009D4C31 /* TechRadarItemsViewController.m */,
+				492BCD77157DB1B9003A8CF7 /* TRCategoryViewController.h */,
+				492BCD78157DB1B9003A8CF7 /* TRCategoryViewController.m */,
+				492BCD79157DB1B9003A8CF7 /* TRCategoryViewController.xib */,
+				F10565AE157E2DAD009D4C31 /* TRItemsViewController.h */,
+				F10565AF157E2DAE009D4C31 /* TRItemsViewController.m */,
+				F1DDF2C315860780007F0412 /* TRMainViewController.h */,
+				F1DDF2C415860780007F0412 /* TRMainViewController.m */,
+				F1383C07158C9CD4001A1E06 /* TRHandleViewController.h */,
+				F1383C08158C9CD4001A1E06 /* TRHandleViewController.m */,
+				F1383C18158CAFC6001A1E06 /* TRMenuViewController.h */,
+				F1383C19158CAFC6001A1E06 /* TRMenuViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -292,7 +307,7 @@
 		F19E1403157CA41100B49AE5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = TW;
+				CLASSPREFIX = TR;
 				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = ThoughtWorks;
 			};
@@ -323,7 +338,7 @@
 				F19E1453157CAC2C00B49AE5 /* icon_app.png in Resources */,
 				F19E1454157CAC2C00B49AE5 /* icon_app@2x.png in Resources */,
 				492BCD76157CF0A6003A8CF7 /* background.png in Resources */,
-				492BCD7B157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.xib in Resources */,
+				492BCD7B157DB1B9003A8CF7 /* TRCategoryViewController.xib in Resources */,
 				492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,10 +377,13 @@
 				F19E141F157CA41100B49AE5 /* main.m in Sources */,
 				F19E1423157CA41100B49AE5 /* TechRadarAppDelegate.m in Sources */,
 				F19E1426157CA41100B49AE5 /* TechRadar.xcdatamodeld in Sources */,
-				492BCD7A157DB1B9003A8CF7 /* TechRadarCategoryControllerViewController.m in Sources */,
-				F10565B0157E2DAE009D4C31 /* TechRadarItemsViewController.m in Sources */,
+				492BCD7A157DB1B9003A8CF7 /* TRCategoryViewController.m in Sources */,
+				F10565B0157E2DAE009D4C31 /* TRItemsViewController.m in Sources */,
 				F10565B5157E312F009D4C31 /* TechRadarItemsPanel.m in Sources */,
 				4977E9481585C47A007A7E52 /* TechRadarContent.m in Sources */,
+				F1DDF2C515860780007F0412 /* TRMainViewController.m in Sources */,
+				F1383C09158C9CD4001A1E06 /* TRHandleViewController.m in Sources */,
+				F1383C1A158CAFC6001A1E06 /* TRMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F149E90F157CBB04006099C3 /* Debug.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Debug;
 		};
@@ -418,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F149E910157CBB10006099C3 /* Release.xcconfig */;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 			};
 			name = Release;
 		};

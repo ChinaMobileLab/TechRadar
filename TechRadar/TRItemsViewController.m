@@ -1,15 +1,15 @@
 //
-//  TechRadarItemsViewController.m
+//  TRItemsViewController.m
 //  TechRadar
 //
 //  Created by Cyril Wei on 6/5/12.
 //  Copyright (c) 2012 ThoughtWorks. All rights reserved.
 //
 
-#import "TechRadarItemsViewController.h"
+#import "TRItemsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface TechRadarItemsViewController ()
+@interface TRItemsViewController ()
 
 @property (nonatomic, retain) TechRadarItemsPanel *adoptPanel;
 @property (nonatomic, retain) TechRadarItemsPanel *trialPanel;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation TechRadarItemsViewController
+@implementation TRItemsViewController
 
 @synthesize adoptPanel = _adoptPanel;
 @synthesize trialPanel = _trialPanel;

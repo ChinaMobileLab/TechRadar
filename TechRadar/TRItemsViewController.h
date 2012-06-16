@@ -1,5 +1,5 @@
 //
-//  TechRadarItemsViewController.h
+//  TRItemsViewController.h
 //  TechRadar
 //
 //  Created by Cyril Wei on 6/5/12.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TechRadarItemsPanel.h"
 
-@interface TechRadarItemsViewController : UIViewController
+@interface TRItemsViewController : UIViewController
 
 @end

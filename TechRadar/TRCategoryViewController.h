@@ -1,5 +1,5 @@
 //
-//  TechRadarCategoryControllerViewController.h
+//  TRCategoryViewController.h
 //  TechRadar
 //
 //  Created by Zhe Wang on 6/5/12.
@@ -8,17 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TechRadarCategoryControllerViewController : UIViewController <UIGestureRecognizerDelegate>
-{
-    CGFloat firstX;
-    CGFloat firstY;
-}
-
-@property (retain, nonatomic) IBOutlet UIImageView *CentralButton;
-
+@interface TRCategoryViewController : UIViewController <UIGestureRecognizerDelegate>
 
 @property (retain, nonatomic) IBOutlet UILabel *TechnologyLabel;
 @property (retain, nonatomic) IBOutlet UILabel *PlatformLabel;
 @property (retain, nonatomic) IBOutlet UILabel *ToolLabel;
 @property (retain, nonatomic) IBOutlet UILabel *LanguageLabel;
+
+- (void)changeToPercent:(CGFloat)percent sender:(id)sender;
+
 @end
