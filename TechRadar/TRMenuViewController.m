@@ -15,6 +15,7 @@
 
 @implementation TRMenuViewController
 
+@synthesize moveStart = _moveStart;
 @synthesize moveCancelled = _moveCancelled;
 @synthesize moveDone = _moveDone;
 @synthesize moveToPercent = _moveToPercent;
