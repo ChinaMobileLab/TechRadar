@@ -49,7 +49,6 @@
         translatedPoint = CGPointMake(firstX+translatedPoint.x, firstY);
         [[sender view] setCenter:translatedPoint];
         restDistancePercent = translatedPoint.x / firstX;
-        NSLog([[NSNumber numberWithFloat:restDistancePercent] stringValue]);
     }
     return restDistancePercent;
 }
@@ -77,15 +76,22 @@
     [self moveText:percent];
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
-//        CGFloat finalX = translatedPoint.x + (.35*[(UIPanGestureRecognizer*)sender velocityInView:self.view].x);
-//		CGFloat finalY = translatedPoint.y + (.35*[(UIPanGestureRecognizer*)sender velocityInView:self.view].y);
-        
-        [UIView beginAnimations:nil context:NULL];
-		[UIView setAnimationDuration:.35];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-//		[[sender view] setCenter:CGPointMake(finalX, finalY)];
-		[UIView commitAnimations];
+
+        if([[sender view] center].x > 0) { 
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            [UIView animateWithDuration:.35 animations:^{
+                [[sender view] setCenter:CGPointMake(TechRadarButtonX, TechRadarButtonY)];
+                [self moveText:1.0];
+            }];
+
+        }
     }
+}
+
+- (void) accelerateComputing
+{
+    //        CGFloat finalX = translatedPoint.x + (.35*[(UIPanGestureRecognizer*)sender velocityInView:self.view].x);
+    //		CGFloat finalY = translatedPoint.y + (.35*[(UIPanGestureRecognizer*)sender velocityInView:self.view].y); 
 }
 
 - (void)viewDidUnload

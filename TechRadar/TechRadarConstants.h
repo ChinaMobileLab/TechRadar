@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 // Form field label style
-#define TechRadarButtonX 100.0
-#define TechRadarButtonY 100.0
+#define TechRadarButtonX 307.0
+#define TechRadarButtonY 374.0
