@@ -12,7 +12,9 @@
 #import "TRItemsViewController.h"
 #import "TRMenuViewController.h"
 
-@interface TRMainViewController : UIViewController
+@interface TRMainViewController : UIViewController {
+    BOOL _isCoverView;
+}
 
 @property (nonatomic, retain) TRCategoryViewController *coverViewController;
 @property (nonatomic, retain) TRItemsViewController *contentViewController;

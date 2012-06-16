@@ -24,9 +24,11 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self initHandleViewController];
-        [self initCoverViewController];
-        [self initContentViewController];
+        _isCoverView = YES;
+        
+        [self loadHandleViewController];
+        [self loadCoverViewController];
+        [self loadContentViewController];
     }
     return self;
 }
@@ -36,7 +38,7 @@
     return [self initWithNibName:nil bundle:nil];
 }
 
-- (void)initHandleViewController
+- (void)loadHandleViewController
 {
     TRHandleViewController *handleController = [[TRHandleViewController alloc] init];
     
@@ -58,7 +60,7 @@
             self.coverViewController.view.alpha = 0.0f;
         } completion:^(BOOL finished) {
             [self.view sendSubviewToBack:self.coverViewController.view];
-            [self loadMenuController];
+            [self changeToMenuViewController];
         }];
     };
     
@@ -75,20 +77,96 @@
     [handleController release];
 }
 
-- (void)loadMenuController
+- (void)loadMenuViewController
 {
-    TRMenuViewController *menuViewController = [[TRMenuViewController alloc] init];
-    self.menuViewController = menuViewController;
-    [menuViewController release];
+    TRMenuViewController *menuController = [[TRMenuViewController alloc] init];
+    
+    menuController.moveStart = ^(id sender, CGFloat percent) {
+        [self.view sendSubviewToBack:self.contentViewController.view];
+    };
+    
+    menuController.moveCancelled = ^(id sender, CGFloat percent) {
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        CGFloat duration = fabs(0.5f * log10(fabs(10.0f * fabs(percent) + 1.0f)));
+        if (duration > 0.5f) {
+            duration = 0.5f;
+        }
+        [UIView animateWithDuration:duration animations:^ {
+            self.menuViewController.view.frame = CGRectMake(TechRadarSideButtonX - TechRadarSideButtonWidth/2, TechRadarSideButtonY - TechRadarSideButtonHeight/2, TechRadarSideButtonWidth, TechRadarSideButtonHeight);
+
+            [self.coverViewController changeToPercent:0.0f sender:sender];
+            self.coverViewController.view.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            [self.view sendSubviewToBack:self.coverViewController.view];
+        }];
+    };
+    
+    menuController.moveDone = ^(id sender, CGFloat percent) {
+        CGFloat duration = 3.0f * fabs(1.0f - percent);
+        if (percent > 1.0f) {
+            duration = 3.0f * fabs(percent - 1.0f);
+        }
+        if (duration > 0.5f) {
+            duration = 0.5f;
+        }
+        
+        [UIView animateWithDuration:duration animations:^{
+            self.menuViewController.view.frame = CGRectMake(TechRadarCentralButtonX - TechRadarCentralButtonWidth/2, TechRadarCentralButtonY - TechRadarCentralButtonHeight/2, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
+            
+            [self.coverViewController changeToPercent:1.0f sender:sender];
+            self.coverViewController.view.alpha = 1.0f;
+        } completion:^(BOOL finished) {
+            [self changeToHandleViewController];
+        }];
+    };
+    
+    menuController.moveToPercent = ^(id sender, CGFloat percent) {
+        [self.coverViewController changeToPercent:percent sender:sender];
+        self.coverViewController.view.alpha = percent;
+        self.menuViewController.view.frame = CGRectMake(0.0f, 0.0f,
+                                                          TechRadarSideButtonWidth + (TechRadarCentralButtonWidth - TechRadarSideButtonWidth) * percent, 
+                                                          TechRadarSideButtonHeight + (TechRadarCentralButtonHeight - TechRadarSideButtonHeight) * percent);
+        [self.menuViewController.view setCenter:CGPointMake(TechRadarCentralButtonX * percent, TechRadarCentralButtonY)];
+        
+    };
+    
+    self.menuViewController = menuController;
+    [menuController release];
+}
+
+- (void)changeToMenuViewController
+{
+    if (self.menuViewController == nil) {
+        [self loadMenuViewController];
+    } else {
+        [self.menuViewController reset];
+    }
     
     [self.view addSubview:self.menuViewController.view];
     [self.view bringSubviewToFront:self.menuViewController.view];
     
     [self.handleViewController.view removeFromSuperview];
-    self.handleViewController = nil;
+    
+    _isCoverView = NO;
 }
 
-- (void)initCoverViewController
+- (void)changeToHandleViewController
+{
+    if (self.handleViewController == nil) {
+        [self loadHandleViewController];
+    } else {
+        [self.handleViewController reset];
+    }
+    
+    [self.view addSubview:self.handleViewController.view];
+    [self.view bringSubviewToFront:self.handleViewController.view];
+    
+    [self.menuViewController.view removeFromSuperview];
+    
+    _isCoverView = YES;
+}
+
+- (void)loadCoverViewController
 {
     TRCategoryViewController *categoryViewController = [[TRCategoryViewController alloc] init];
 
@@ -96,7 +174,7 @@
     [categoryViewController release];
 }
 
-- (void)initContentViewController
+- (void)loadContentViewController
 {
     TRItemsViewController *itemsViewController = [[TRItemsViewController alloc] init];
     
@@ -123,18 +201,17 @@
     if (self.handleViewController != nil) {
         [self.view addSubview:self.handleViewController.view];
     }
-} 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
-- (void)viewDidUnload
+- (void)didReceiveMemoryWarning
 {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
+    if (_isCoverView) {
+        self.menuViewController = nil;
+    } else {
+        self.handleViewController = nil;
+    }
+    
+    [super didReceiveMemoryWarning];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

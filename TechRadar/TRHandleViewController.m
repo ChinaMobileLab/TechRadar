@@ -28,18 +28,24 @@
     [panRecognizer setMinimumNumberOfTouches:1];
     [panRecognizer setMaximumNumberOfTouches:1];
     [self.view addGestureRecognizer:panRecognizer];
-    [self.view setCenter:CGPointMake(TechRadarCentralButtonX, TechRadarCentralButtonY)];
     [panRecognizer release];
 }
 
 - (void)loadView
 {
     UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn_central_button.png"]];
-    view.frame = CGRectMake(0.0f, 0.0f, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
     self.view = view;
     [view release];
     
+    [self reset];
     [self initPanGestureRecognizer];
+}
+
+- (void)reset
+{
+    self.view.frame = CGRectMake(0.0f, 0.0f, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
+    
+    self.view.center = CGPointMake(TechRadarCentralButtonX, TechRadarCentralButtonY);
 }
 
 - (void)handlePan:(id)sender
@@ -87,12 +93,6 @@
         restDistancePercent = translatedPoint.x / firstX;
     }
     return restDistancePercent;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
 - (void)dealloc

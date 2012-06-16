@@ -19,4 +19,6 @@ typedef void (^TRHandleMovePercentBlock)(id, CGFloat);
 @property (nonatomic, copy) TRHandleMovePercentBlock moveDone;
 @property (nonatomic, copy) TRHandleMovePercentBlock moveToPercent;
 
+- (void)reset;
+
 @end
