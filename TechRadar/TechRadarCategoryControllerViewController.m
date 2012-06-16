@@ -53,7 +53,7 @@
     return restDistancePercent;
 }
 
-- (void)moveText:(float)percent
+- (void)changeText:(float)percent
 {
     TechnologyLabel.alpha = percent;
     LanguageLabel.alpha = percent;
@@ -61,9 +61,29 @@
     PlatformLabel.alpha = percent;
 }
 
+- (void)changeLines:(float)percent
+{
+    
+}
+
+- (void)changeButton:(float)percent sender:(id)sender
+{   
+//    CGFloat s = 3;
+//    CGAffineTransform tr = CGAffineTransformScale(self.view.transform, 3, 3);
+//    CGFloat h = self.view.frame.size.height;
+//    CGFloat w = self.view.frame.size.width;
+
+//    [sender view].frame = CGRectMake(0, 0, imgSize.width, imgSize.height);;
+
+    
+//    [sender view].transform = tr;
+//    [sender view].center = CGPointMake(w-w*s/2,h*s/2);
+
+    
+}
+
 - (void)handlePan:(id)sender
 {
-//    [[[(UITapGestureRecognizer*)sender view] layer] removeAllAnimations];
     [self.view bringSubviewToFront:[(UIPanGestureRecognizer*)sender view]];
     CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
     
@@ -73,7 +93,9 @@
     }
     
     float percent = [self moveCentralButton:translatedPoint sender:sender];
-    [self moveText:percent];
+    [self changeButton:percent sender:sender];
+    [self changeText:percent];
+    [self changeLines:percent];
     
     if([(UIPanGestureRecognizer*)sender state] == UIGestureRecognizerStateEnded) {
 
@@ -81,17 +103,12 @@
             [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
             [UIView animateWithDuration:.35 animations:^{
                 [[sender view] setCenter:CGPointMake(TechRadarButtonX, TechRadarButtonY)];
-                [self moveText:1.0];
+                [self changeText:1.0];
+                [self changeLines:1.0];
             }];
 
         }
     }
-}
-
-- (void) accelerateComputing
-{
-    //        CGFloat finalX = translatedPoint.x + (.35*[(UIPanGestureRecognizer*)sender velocityInView:self.view].x);
-    //		CGFloat finalY = translatedPoint.y + (.35*[(UIPanGestureRecognizer*)sender velocityInView:self.view].y); 
 }
 
 - (void)viewDidUnload
