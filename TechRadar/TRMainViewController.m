@@ -146,6 +146,7 @@
     [self.view bringSubviewToFront:self.menuViewController.view];
     
     [self.handleViewController.view removeFromSuperview];
+    [self.contentViewController relayout];
     
     _isCoverView = NO;
 }
@@ -201,6 +202,45 @@
     if (self.handleViewController != nil) {
         [self.view addSubview:self.handleViewController.view];
     }
+}
+
+
+- (void)startAnimation
+{
+    NSInteger animationFrameInterval = 4;
+
+    displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(sendTickTock)];
+    [displayLink setFrameInterval:animationFrameInterval];
+    
+    [displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
+- (void)stopAnimation
+{
+    [displayLink invalidate];
+
+    displayLink = nil;
+}
+
+- (void)sendTickTock
+{
+    NSNotification *tickTock = [NSNotification notificationWithName:TechRadarMainTickTockNotification object:nil];
+    
+    [[NSNotificationQueue defaultQueue] enqueueNotification:tickTock postingStyle:NSPostASAP coalesceMask:NSNotificationCoalescingOnName forModes:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self startAnimation];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self stopAnimation];
+    
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning

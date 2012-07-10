@@ -13,6 +13,11 @@ typedef void (^TRHandleMovePercentBlock)(id, CGFloat);
 @interface TRHandleViewController : UIViewController <UIGestureRecognizerDelegate> {
     CGFloat firstX;
     CGFloat firstY;
+    
+    BOOL decrease;
+    NSInteger delay;
+    
+    UIImageView *shiningView;
 }
 
 @property (nonatomic, copy) TRHandleMovePercentBlock moveCancelled;

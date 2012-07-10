@@ -20,3 +20,5 @@
 #define TechRadarSideButtonHeight 150.0f
 
 #define TechRadarCentralButtonAcceptedX 50.0f
+
+#define TechRadarMainTickTockNotification @"TechRadarMainTickTockNotification"

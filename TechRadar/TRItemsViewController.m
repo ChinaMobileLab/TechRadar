@@ -11,10 +11,10 @@
 
 @interface TRItemsViewController ()
 
-@property (nonatomic, retain) TechRadarItemsPanel *adoptPanel;
-@property (nonatomic, retain) TechRadarItemsPanel *trialPanel;
-@property (nonatomic, retain) TechRadarItemsPanel *assessPanel;
-@property (nonatomic, retain) TechRadarItemsPanel *holdPanel;
+@property (nonatomic, retain) TRItemsPanel *adoptPanel;
+@property (nonatomic, retain) TRItemsPanel *trialPanel;
+@property (nonatomic, retain) TRItemsPanel *assessPanel;
+@property (nonatomic, retain) TRItemsPanel *holdPanel;
 
 @end
 
@@ -51,26 +51,37 @@
     self.view = view;
     [view release];
     
-    self.holdPanel = [[TechRadarItemsPanel alloc] initWithFrame:CGRectMake(900.0f, 0.0f, [self radiusForWidth:1000.0f] - 900.0f, 748.0f)];
+    self.holdPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(900.0f, 0.0f, [self radiusForWidth:1000.0f] - 900.0f, 748.0f)];
     self.holdPanel.backgroundColor = [UIColor darkGrayColor];
     [self.view addSubview:self.holdPanel];
         
-    self.assessPanel = [[TechRadarItemsPanel alloc] initWithFrame:CGRectMake(750.0f, 0.0f, [self radiusForWidth:900.0f] - 750.0f, 748.0f)];
+    self.assessPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(750.0f, 0.0f, [self radiusForWidth:900.0f] - 750.0f, 748.0f)];
     self.assessPanel.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.assessPanel];
 
-    self.trialPanel = [[TechRadarItemsPanel alloc] initWithFrame:CGRectMake(500.0f, 0.0f, [self radiusForWidth:750.0f] - 500.0f, 748.0f)];
+    self.trialPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(500.0f, 0.0f, [self radiusForWidth:750.0f] - 500.0f, 748.0f)];
     self.trialPanel.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.trialPanel];
 
-    self.adoptPanel = [[TechRadarItemsPanel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [self radiusForWidth:500.0f], 748.0f)];
+    self.adoptPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [self radiusForWidth:500.0f], 748.0f)];
     self.adoptPanel.backgroundColor = [UIColor greenColor];
     [self.view addSubview:self.adoptPanel];
+
+    for (int i = 0; i < 10; i ++) {
+        TRItem *item = [[TRItem alloc] initWithRadius:40.0f + ((arc4random() % 40) - 20.0f)];
+        [item setTitle:@"Title" forState:UIControlStateNormal];
+        [self.adoptPanel addItem:item];
+        [item release];
+    }
+//    TRItem *item = [[TRItem alloc] initWithRadius:50.0f];
+//    [item addTarget:self action:@selector(showPopover) forControlEvents:UIControlEventTouchUpInside];
+//    [self.adoptPanel addItem:item];
+//    [item release];
     
     UIPanGestureRecognizer *panAdopt = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAdopt:)];
     panAdopt.minimumNumberOfTouches = 1;
     panAdopt.maximumNumberOfTouches = 1;
-    [self.adoptPanel addGestureRecognizer:panAdopt];
+//    [self.adoptPanel addGestureRecognizer:panAdopt];
     
 }
 
@@ -133,6 +144,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)relayout
+{
+    [self.adoptPanel relayout];
+}
+
+- (void)showPopover
+{
+    UIViewController *contentController = [[UIViewController alloc] init];
+    
+    UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:contentController];
+    
+    popover.popoverContentSize = CGSizeMake(300.0f, 300.0f);
+    
+    [popover presentPopoverFromRect:CGRectMake(100.0f, 100.0f, 50.0f, 50.0f) inView:self.adoptPanel permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
 }
 
 - (void)viewDidUnload

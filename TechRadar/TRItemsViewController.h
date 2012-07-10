@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TechRadarItemsPanel.h"
+#import "TRItemsPanel.h"
+#import "TRItem.h"
 
 @interface TRItemsViewController : UIViewController
+
+- (void)relayout;
 
 @end

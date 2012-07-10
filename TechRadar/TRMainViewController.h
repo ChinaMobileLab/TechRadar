@@ -14,6 +14,7 @@
 
 @interface TRMainViewController : UIViewController {
     BOOL _isCoverView;
+    CADisplayLink *displayLink;
 }
 
 @property (nonatomic, retain) TRCategoryViewController *coverViewController;

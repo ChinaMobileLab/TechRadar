@@ -34,18 +34,70 @@
 - (void)loadView
 {
     UIImageView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"btn_central_button.png"]];
+    view.autoresizesSubviews = YES;
     self.view = view;
     [view release];
     
+    shiningView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shining.png"]];
+    shiningView.alpha = 0.0f;
+    shiningView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    
+    [self.view addSubview:shiningView];
+    
     [self reset];
     [self initPanGestureRecognizer];
+    
+    decrease = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tickTockReceived) name:TechRadarMainTickTockNotification object:nil];
+}
+
+- (void)viewDidUnload
+{
+    [shiningView release];
+    shiningView = nil;
+    
+    [super viewDidUnload];
+}
+
+- (void)tickTockReceived
+{
+    if (decrease) {
+        if (delay >= 15) {
+            shiningView.alpha -= 0.025f;
+            if (shiningView.alpha <= 0.0f) {
+                shiningView.alpha = 0.0f;
+                decrease = NO;
+                delay = 0;
+            }
+        } else {
+            ++ delay;
+        }
+        
+    } else {
+        if (delay >= 60) {
+            shiningView.alpha += 0.05f;
+            if (shiningView.alpha >= 1.0f) {
+                shiningView.alpha = 1.0f;
+                decrease = YES;
+                delay = 0;
+            }
+        } else {
+            ++ delay;
+        }
+    }
 }
 
 - (void)reset
 {
-    self.view.frame = CGRectMake(0.0f, 0.0f, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
+    CGRect buttonFrame = CGRectMake(0.0f, 0.0f, TechRadarCentralButtonWidth, TechRadarCentralButtonHeight);
     
-    self.view.center = CGPointMake(TechRadarCentralButtonX, TechRadarCentralButtonY);
+    CGPoint buttonCenter = CGPointMake(TechRadarCentralButtonX, TechRadarCentralButtonY);
+    
+    self.view.frame = buttonFrame;
+    
+    self.view.center = buttonCenter;
+
+//    shiningView.frame = self.view.bounds;
 }
 
 - (void)handlePan:(id)sender
@@ -103,6 +155,7 @@
     
     [super dealloc];
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -1,23 +1,31 @@
 //
-//  TechRadarItemsPanel.m
+//  TRItemsPanel.m
 //  TechRadar
 //
 //  Created by Cyril Wei on 6/5/12.
 //  Copyright (c) 2012 ThoughtWorks. All rights reserved.
 //
 
-#import "TechRadarItemsPanel.h"
+#import "TRItemsPanel.h"
 #import "QuartzCore/QuartzCore.h"
+#import "TRItem.h"
+#import "TRItemsPanelLayout.h"
 
 #define DEGREES_TO_RADIANS(degrees) ((M_PI * degrees)/ 180)
 
-@implementation TechRadarItemsPanel
+@implementation TRItemsPanel
+
+- (NSArray *)items
+{
+    return [_items copy];
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        _items = [[NSMutableArray alloc] initWithCapacity:5];
+        
         self.backgroundColor = [UIColor lightGrayColor];
         
         
@@ -29,11 +37,49 @@
 //        self.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
 //        self.layer.shadowColor = [[UIColor grayColor] CGColor];
 //        self.layer.shadowPath = maskPath.CGPath;
+        
+        self.layout = [[TRItemsPanelLayout alloc] init];
+        self.layout.itemsPanel = self;
     }
     return self;
 }
 
-- (void)layoutSubviews 
+- (void)dealloc
+{
+    [_items release];
+    
+    [super dealloc];
+}
+
+- (void)addItem:(TRItem *)item
+{
+    [_items addObject:item];
+    [self.layout reset];
+    
+    [self addSubview:item];
+    
+    [self setNeedsLayout];
+}
+
+- (void)relayout
+{
+    [self.layout reset];
+    [self.layout layoutItems];
+    
+    NSMutableArray *pointArray = [[NSMutableArray alloc] initWithCapacity:self.items.count];
+    for (int i = 0; i < self.items.count; i ++) {
+        [pointArray addObject:[NSValue valueWithCGPoint:((UIView *)[_items objectAtIndex:i]).center]];
+    }
+
+    [self.layout reset];
+    [UIView animateWithDuration:0.5f animations:^{
+        for (int i = 0; i < self.items.count; i ++) {
+            ((UIView *)[_items objectAtIndex:i]).center = ((NSValue *)[pointArray objectAtIndex:i]).CGPointValue;
+        }
+    }];
+}
+
+- (void)layoutSubviews
 {
 //    CGFloat radius = sqrt(pow(self.frame.origin.x + self.frame.size.width, 2) + pow(374.0f, 2));
     CGFloat radius = self.frame.origin.x + self.frame.size.width;
@@ -51,6 +97,8 @@
     maskLayer.path = maskPath.CGPath;
     
     self.layer.mask = maskLayer;
+    
+    [self.layout layoutItems];
 }
 
 /*
