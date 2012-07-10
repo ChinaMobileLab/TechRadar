@@ -82,25 +82,30 @@
 - (void)layoutSubviews
 {
 //    CGFloat radius = sqrt(pow(self.frame.origin.x + self.frame.size.width, 2) + pow(374.0f, 2));
-    CGFloat radius = self.frame.origin.x + self.frame.size.width;
-    
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0.0f - self.frame.origin.x, 374.0f) 
-                                                            radius:radius 
-                                                        startAngle:DEGREES_TO_RADIANS(-75.0f) 
-                                                          endAngle:DEGREES_TO_RADIANS(75.0f)
-                                                         clockwise:YES];
-    
-    [maskPath addLineToPoint:CGPointMake(0.0f - self.frame.origin.x, 374.0f)];
     
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = self.bounds;
-    maskLayer.path = maskPath.CGPath;
+    maskLayer.path = self.shapePath.CGPath;
     
     self.layer.mask = maskLayer;
     
     [self.layout layoutItems];
 }
 
+- (UIBezierPath *)shapePath
+{
+    CGFloat radius = self.frame.origin.x + self.frame.size.width;
+    
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0.0f - self.frame.origin.x, 374.0f)
+                                                            radius:radius
+                                                        startAngle:DEGREES_TO_RADIANS(-75.0f)
+                                                          endAngle:DEGREES_TO_RADIANS(75.0f)
+                                                         clockwise:YES];
+    
+    [maskPath addLineToPoint:CGPointMake(0.0f - self.frame.origin.x, 374.0f)];
+
+    return maskPath;
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

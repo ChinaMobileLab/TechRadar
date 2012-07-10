@@ -17,6 +17,7 @@
 
 @property (nonatomic, readonly) NSArray *items;
 @property (nonatomic, retain) TRItemsPanelLayout *layout;
+@property (nonatomic, readonly) UIBezierPath *shapePath;
 
 - (void)addItem:(TRItem *)item;
 - (void)relayout;

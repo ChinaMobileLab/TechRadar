@@ -9,6 +9,7 @@
 #import "TRItemsPanelLayout.h"
 #import "TRItem.h"
 #import "TRItemsPanel.h"
+#import "TechRadarConstants.h"
 
 @interface TRItemsPanelLayout ()
 
@@ -41,10 +42,8 @@
             CGFloat y = self.contentSize.height / 2.0f;
             //            CGFloat x = arc4random() % (int)self.contentSize.width;
             //            CGFloat y = arc4random() % (int)self.contentSize.height;
-            CGFloat inset = item.radius + 20.0f;
             
-            if (x >= inset && x <= self.contentSize.width - inset &&
-                y >= inset && y <= self.contentSize.height - inset) {
+            if ([self isPoint:CGPointMake(x, y) andRadius:item.radius insidePanel:self.itemsPanel]) {
                 item.center = CGPointMake(x, y);
                 set = YES;
             }
@@ -76,20 +75,84 @@
 
 - (BOOL)shouldItem:(TRItem *)item moveToPoint:(CGPoint)newCenter currentNearestDistance:(CGFloat)currentNearestDistance
 {
-    BOOL moved = NO;
-    CGPoint oldCenter = item.center;
-    CGFloat inset = item.radius + 10.0f;
-        
-    if (newCenter.x >= inset + 20.0f && newCenter.x <= self.contentSize.width - inset - 20.0f &&
-        newCenter.y >= inset && newCenter.y <= self.contentSize.height - inset) {
-        item.center = newCenter;
-        if ([self nearestDistance:item] > currentNearestDistance) {
-            moved = YES;
-        }
-    }
+    return [self isPoint:newCenter andRadius:item.radius insidePanel:self.itemsPanel]
+        && [self nearestDistanceForItem:item newCenter:newCenter] > currentNearestDistance;
+}
+
+- (BOOL)isPoint:(CGPoint)point andRadius:(CGFloat)radius insidePanel:(TRItemsPanel *)panel
+{
+    CGFloat inset = radius;
+    CGRect rect = panel.bounds;
     
-    item.center = oldCenter;
-    return moved;
+    UIBezierPath *path = panel.shapePath;
+    CGRect sideButtonRect = CGRectMake(TechRadarSideButtonX - TechRadarSideButtonWidth / 2.0f
+               , TechRadarSideButtonY - TechRadarSideButtonHeight / 2.0f
+               , TechRadarSideButtonWidth, TechRadarSideButtonHeight);
+
+    UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRoundedRect:sideButtonRect cornerRadius:TechRadarSideButtonWidth / 2.0f];
+    
+    return (point.x >= rect.origin.x + inset && point.x <= rect.size.width - inset &&
+            point.y >= rect.origin.y + radius && point.y <= rect.size.height - radius &&
+            [self isPath:path containsPoint:point andRadius:radius] &&
+            [self isPath:buttonPath notContainsPoint:point andRadius:radius]);
+}
+
+- (BOOL)isPath:(UIBezierPath *)path containsPoint:(CGPoint)point andRadius:(CGFloat)radius
+{
+    CGFloat r = sqrtf(powf(radius, 2.0f)) / 2.0f;
+    
+    NSArray *moveArray = [NSArray arrayWithObjects:
+                          [NSValue valueWithCGPoint:CGPointMake(0.0f, -radius)]
+                          , [NSValue valueWithCGPoint:CGPointMake(r, -r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(radius, 0.0f)]
+                          , [NSValue valueWithCGPoint:CGPointMake(r, r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(0.0f, radius)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-r, r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-radius, 0.0f)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-r, -r)]
+                          , nil];
+    
+    __block BOOL isContains = YES;
+    [moveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CGPoint delta = ((NSValue *)obj).CGPointValue;
+        CGPoint newCenter = CGPointMake(point.x + delta.x, point.y + delta.y);
+        
+        if (![path containsPoint:newCenter]) {
+            isContains = NO;
+            *stop = YES;
+        }
+    }];
+
+    return isContains;
+}
+
+- (BOOL)isPath:(UIBezierPath *)path notContainsPoint:(CGPoint)point andRadius:(CGFloat)radius
+{
+    CGFloat r = sqrtf(powf(radius, 2.0f)) / 2.0f;
+    
+    NSArray *moveArray = [NSArray arrayWithObjects:
+                          [NSValue valueWithCGPoint:CGPointMake(0.0f, -radius)]
+                          , [NSValue valueWithCGPoint:CGPointMake(r, -r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(radius, 0.0f)]
+                          , [NSValue valueWithCGPoint:CGPointMake(r, r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(0.0f, radius)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-r, r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-radius, 0.0f)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-r, -r)]
+                          , nil];
+    
+    __block BOOL isContains = NO;
+    [moveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        CGPoint delta = ((NSValue *)obj).CGPointValue;
+        CGPoint newPoint = CGPointMake(point.x + delta.x, point.y + delta.y);
+        
+        if ([path containsPoint:newPoint]) {
+            isContains = YES;
+            *stop = YES;
+        }
+    }];
+    
+    return !isContains;
 }
 
 - (void)moveWithStep:(CGFloat)step
@@ -104,17 +167,17 @@
                           , [NSValue valueWithCGPoint:CGPointMake(-step, 0.0f)]
                           , [NSValue valueWithCGPoint:CGPointMake(-step, -step)]
                           , nil];
+    
     __block BOOL moved = NO;
     do {
         moved = NO;
         for (TRItem *item in self.items) {
             __block CGFloat currentNearestDistance = [self nearestDistance:item];
             
-            __block CGPoint oldCenter = item.center;
-
             [moveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 CGPoint delta = ((NSValue *)obj).CGPointValue;
-                CGPoint newCenter = CGPointMake(oldCenter.x + delta.x, oldCenter.y + delta.y);
+                CGPoint newCenter = CGPointMake(item.center.x + delta.x, item.center.y + delta.y);
+                
                 if ([self shouldItem:item moveToPoint:newCenter currentNearestDistance:currentNearestDistance]) {
                     item.center = newCenter;
                     moved = YES;
@@ -132,11 +195,16 @@
 
 - (CGFloat)nearestDistance:(TRItem *)theItem
 {
+    return [self nearestDistanceForItem:theItem newCenter:theItem.center];
+}
+
+- (CGFloat)nearestDistanceForItem:(TRItem *)theItem newCenter:(CGPoint)newCenter
+{
     CGFloat nearestDistance = MAXFLOAT;
     
     for (TRItem *item in self.items) {
         if (![theItem isEqual:item]) {
-            CGFloat distance = [self distanceBetween:theItem.center and:item.center];
+            CGFloat distance = [self distanceBetween:newCenter and:item.center];
             if (distance < nearestDistance) {
                 nearestDistance = distance;
             }
