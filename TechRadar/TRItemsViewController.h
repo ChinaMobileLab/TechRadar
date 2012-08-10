@@ -10,7 +10,9 @@
 #import "TRItemsPanel.h"
 #import "TRItem.h"
 
-@interface TRItemsViewController : UIViewController
+@interface TRItemsViewController : UIViewController <TRItemsPanelDelegate> {
+    NSMutableArray *panels;
+}
 
 - (void)relayout;
 

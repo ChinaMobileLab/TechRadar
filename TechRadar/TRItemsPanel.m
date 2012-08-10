@@ -15,6 +15,9 @@
 
 @implementation TRItemsPanel
 
+@synthesize delegate = _delegate;
+@synthesize layout = _layout;
+
 - (NSArray *)items
 {
     return [_items copy];
@@ -25,14 +28,20 @@
     self = [super initWithFrame:frame];
     if (self) {
         _items = [[NSMutableArray alloc] initWithCapacity:5];
+        self.clipsToBounds = NO;
         
-        self.backgroundColor = [UIColor lightGrayColor];
+//        self.backgroundColor = [UIColor lightGrayColor];
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"net_bg.png"]];
+        UIImageView *bkgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"net_bg.png"]];
+        bkgImage.frame = CGRectMake(frame.size.width - bkgImage.frame.size.width, 0.0f
+                                    , bkgImage.frame.size.width, bkgImage.frame.size.height);
+        [self addSubview:bkgImage];
+        [self sendSubviewToBack:bkgImage];
         
         
 //        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds 
 //                                                       byRoundingCorners:UIRectCornerTopLeft
 //                                                             cornerRadii:CGSizeMake(10.0, 10.0)];
-        self.clipsToBounds = NO;
 
 //        self.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
 //        self.layer.shadowColor = [[UIColor grayColor] CGColor];
@@ -40,8 +49,21 @@
         
         self.layout = [[TRItemsPanelLayout alloc] init];
         self.layout.itemsPanel = self;
+        
+        UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+        [self addGestureRecognizer:tapGR];
+        [tapGR release];
     }
     return self;
+}
+
+- (void)tapped:(UIGestureRecognizer*)gestureRecognizer
+{
+    if (self.delegate) {
+        if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
+            [self.delegate TRItemsPanelTapped:self];
+        }
+    }
 }
 
 - (void)dealloc
@@ -63,20 +85,20 @@
 
 - (void)relayout
 {
-    [self.layout reset];
+//    [self.layout reset];
     [self.layout layoutItems];
     
-    NSMutableArray *pointArray = [[NSMutableArray alloc] initWithCapacity:self.items.count];
-    for (int i = 0; i < self.items.count; i ++) {
-        [pointArray addObject:[NSValue valueWithCGPoint:((UIView *)[_items objectAtIndex:i]).center]];
-    }
-
-    [self.layout reset];
-    [UIView animateWithDuration:0.5f animations:^{
-        for (int i = 0; i < self.items.count; i ++) {
-            ((UIView *)[_items objectAtIndex:i]).center = ((NSValue *)[pointArray objectAtIndex:i]).CGPointValue;
-        }
-    }];
+//    NSMutableArray *pointArray = [[NSMutableArray alloc] initWithCapacity:self.items.count];
+//    for (int i = 0; i < self.items.count; i ++) {
+//        [pointArray addObject:[NSValue valueWithCGPoint:((UIView *)[_items objectAtIndex:i]).center]];
+//    }
+//
+//    [self.layout reset];
+//    [UIView animateWithDuration:0.5f animations:^{
+//        for (int i = 0; i < self.items.count; i ++) {
+//            ((UIView *)[_items objectAtIndex:i]).center = ((NSValue *)[pointArray objectAtIndex:i]).CGPointValue;
+//        }
+//    }];
 }
 
 - (void)layoutSubviews

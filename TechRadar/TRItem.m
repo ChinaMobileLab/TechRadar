@@ -7,6 +7,7 @@
 //
 
 #import "TRItem.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation TRItem
 
@@ -17,13 +18,17 @@
         self.backgroundColor = [UIColor whiteColor];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         
-        CGFloat diameter = radius * 2.0f;
-        
-        self.frame = CGRectMake(0.0f, 0.0f, diameter, diameter);
-        
-        self.layer.cornerRadius = radius;
+        [self setRadius:radius];
     }
     return self;
+}
+
+- (void)setRadius:(CGFloat)radius
+{
+    CGFloat diameter = radius * 2.0f;
+    self.frame = CGRectMake(self.center.x - radius, self.center.y - radius, diameter, diameter);
+
+    self.layer.cornerRadius = radius;
 }
 
 - (CGFloat)radius

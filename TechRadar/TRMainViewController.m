@@ -229,6 +229,13 @@
     [[NSNotificationQueue defaultQueue] enqueueNotification:tickTock postingStyle:NSPostASAP coalesceMask:NSNotificationCoalescingOnName forModes:nil];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:82.0f/255 green:139.0f/255 blue:217.0f/255 alpha:1.0f];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];

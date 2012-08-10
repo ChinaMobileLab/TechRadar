@@ -16,6 +16,8 @@
 		F10565B5157E312F009D4C31 /* TRItemsPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = F10565B4157E312F009D4C31 /* TRItemsPanel.m */; };
 		F10565B7157E325D009D4C31 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10565B6157E325D009D4C31 /* QuartzCore.framework */; };
 		F115B51B15A5750800D81272 /* TRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F115B51A15A5750800D81272 /* TRItem.m */; };
+		F11FA2C615C9225C0014C43E /* net_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = F11FA2C415C9225C0014C43E /* net_bg.png */; };
+		F11FA2C715C9225C0014C43E /* net_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F11FA2C515C9225C0014C43E /* net_bg@2x.png */; };
 		F130F3141590B78D00E27F0D /* shining.png in Resources */ = {isa = PBXBuildFile; fileRef = F130F3131590B78D00E27F0D /* shining.png */; };
 		F1383C09158C9CD4001A1E06 /* TRHandleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1383C08158C9CD4001A1E06 /* TRHandleViewController.m */; };
 		F1383C1A158CAFC6001A1E06 /* TRMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1383C19158CAFC6001A1E06 /* TRMenuViewController.m */; };
@@ -65,6 +67,8 @@
 		F10565B6157E325D009D4C31 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F115B51915A5750800D81272 /* TRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRItem.h; sourceTree = "<group>"; };
 		F115B51A15A5750800D81272 /* TRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRItem.m; sourceTree = "<group>"; };
+		F11FA2C415C9225C0014C43E /* net_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = net_bg.png; sourceTree = "<group>"; };
+		F11FA2C515C9225C0014C43E /* net_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "net_bg@2x.png"; sourceTree = "<group>"; };
 		F130F3131590B78D00E27F0D /* shining.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shining.png; sourceTree = "<group>"; };
 		F1383C07158C9CD4001A1E06 /* TRHandleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRHandleViewController.h; sourceTree = "<group>"; };
 		F1383C08158C9CD4001A1E06 /* TRHandleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRHandleViewController.m; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 		F19E144C157CAA0B00B49AE5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				F11FA2C415C9225C0014C43E /* net_bg.png */,
+				F11FA2C515C9225C0014C43E /* net_bg@2x.png */,
 				F130F3131590B78D00E27F0D /* shining.png */,
 				492BCD75157CF0A6003A8CF7 /* background.png */,
 				492BCD7C157DB727003A8CF7 /* btn_central_button.png */,
@@ -354,6 +360,8 @@
 				492BCD7B157DB1B9003A8CF7 /* TRCategoryViewController.xib in Resources */,
 				492BCD7D157DB727003A8CF7 /* btn_central_button.png in Resources */,
 				F130F3141590B78D00E27F0D /* shining.png in Resources */,
+				F11FA2C615C9225C0014C43E /* net_bg.png in Resources */,
+				F11FA2C715C9225C0014C43E /* net_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

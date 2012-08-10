@@ -10,7 +10,7 @@
 
 @interface TRItem : UIButton
 
-@property (nonatomic, readonly) CGFloat radius;
+@property (nonatomic) CGFloat radius;
 
 - (id)initWithRadius:(CGFloat)radius;
 

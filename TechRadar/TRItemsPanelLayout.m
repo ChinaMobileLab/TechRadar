@@ -40,10 +40,12 @@
         do {
             CGFloat x = self.contentSize.width / 2.0f;
             CGFloat y = self.contentSize.height / 2.0f;
+            CGFloat radius = 40.0f + ((arc4random() % 40) - 20.0f);
             //            CGFloat x = arc4random() % (int)self.contentSize.width;
             //            CGFloat y = arc4random() % (int)self.contentSize.height;
             
-            if ([self isPoint:CGPointMake(x, y) andRadius:item.radius insidePanel:self.itemsPanel]) {
+            if ([self isPoint:CGPointMake(x, y) andRadius:radius insidePanel:self.itemsPanel]) {
+                [item setRadius:radius];
                 item.center = CGPointMake(x, y);
                 set = YES;
             }
@@ -81,7 +83,6 @@
 
 - (BOOL)isPoint:(CGPoint)point andRadius:(CGFloat)radius insidePanel:(TRItemsPanel *)panel
 {
-    CGFloat inset = radius;
     CGRect rect = panel.bounds;
     
     UIBezierPath *path = panel.shapePath;
@@ -91,7 +92,7 @@
 
     UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRoundedRect:sideButtonRect cornerRadius:TechRadarSideButtonWidth / 2.0f];
     
-    return (point.x >= rect.origin.x + inset && point.x <= rect.size.width - inset &&
+    return (point.x >= rect.origin.x + radius && point.x <= rect.size.width - radius &&
             point.y >= rect.origin.y + radius && point.y <= rect.size.height - radius &&
             [self isPath:path containsPoint:point andRadius:radius] &&
             [self isPath:buttonPath notContainsPoint:point andRadius:radius]);
