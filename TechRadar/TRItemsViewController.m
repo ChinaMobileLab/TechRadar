@@ -51,7 +51,8 @@
 - (void)loadView
 {
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    view.backgroundColor = [UIColor colorWithRed:82.0f/255 green:139.0f/255 blue:217.0f/255 alpha:1.0f];
+    view.backgroundColor = [UIColor clearColor];
+//    view.backgroundColor = [UIColor colorWithRed:82.0f/255 green:139.0f/255 blue:217.0f/255 alpha:1.0f];
 //    528bd9
     self.view = view;
     
