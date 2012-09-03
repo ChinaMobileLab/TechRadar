@@ -83,8 +83,7 @@
     [panels addObject:self.adoptPanel];
 
     for (int i = 0; i < 10; i ++) {
-        TRItem *item = [[TRItem alloc] initWithRadius:40.0f + ((arc4random() % 40) - 20.0f)];
-        [item setTitle:@"Title" forState:UIControlStateNormal];
+        TRItem *item = [[TRItem alloc] initWithLevel:1];
         [self.adoptPanel addItem:item];
         [item release];
     }

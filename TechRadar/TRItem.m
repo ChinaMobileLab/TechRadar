@@ -11,14 +11,17 @@
 
 @implementation TRItem
 
-- (id)initWithRadius:(CGFloat)radius
+- (id)initWithLevel:(NSInteger)level
 {
     self = [super initWithFrame:CGRectZero];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        self.backgroundColor = [UIColor clearColor];
         
-        [self setRadius:radius];
+        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", level]]];
+        
+        self.radius = 38.0f;
+        [self addSubview:image];
+        [image release];
     }
     return self;
 }
@@ -28,7 +31,7 @@
     CGFloat diameter = radius * 2.0f;
     self.frame = CGRectMake(self.center.x - radius, self.center.y - radius, diameter, diameter);
 
-    self.layer.cornerRadius = radius;
+//    self.layer.cornerRadius = radius;
 }
 
 - (CGFloat)radius

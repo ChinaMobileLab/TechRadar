@@ -8,6 +8,7 @@
 
 #import "TRMainViewController.h"
 #import "TechRadarConstants.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TRMainViewController ()
 
@@ -26,6 +27,8 @@
     if (self) {
         _isCoverView = YES;
         
+        [self initItems];
+        
         [self loadHandleViewController];
         [self loadCoverViewController];
         [self loadContentViewController];
@@ -36,6 +39,12 @@
 - (id)init
 {
     return [self initWithNibName:nil bundle:nil];
+}
+
+- (void)dealloc
+{
+    [items release];
+    [super dealloc];
 }
 
 - (void)loadHandleViewController
@@ -189,6 +198,12 @@
     view.backgroundColor = [UIColor blackColor];
     self.view = view;
     [view release];
+
+    WMWheel *wheel = [[WMWheel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 200.0f, 748.0f) center:CGPointMake(-13.0f, 748.0f / 2.0f) radius:213.0f];
+    wheel.dataSource = self;
+    wheel.delegate = self;
+    [self.view addSubview:wheel];
+    [wheel release];
     
     if (self.contentViewController != nil) {
         [self.view addSubview:self.contentViewController.view];
@@ -264,6 +279,50 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
 	return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+}
+
+#pragma mark -
+#pragma mark WMWheelMenu DataSource
+- (void)initItems
+{
+    items = [[NSMutableArray alloc] initWithCapacity:4];
+    WMWheelItem *item = [[WMWheelItem alloc] init];
+    item.angle = -45.0f;
+    [items addObject:item];
+    [item release];
+
+    item = [[WMWheelItem alloc] init];
+    item.angle = -15.0f;
+    [items addObject:item];
+    [item release];
+
+    item = [[WMWheelItem alloc] init];
+    item.angle = 15.0f;
+    [items addObject:item];
+    [item release];
+
+    item = [[WMWheelItem alloc] init];
+    item.angle = 45.0f;
+    [items addObject:item];
+    [item release];
+}
+
+- (int)itemsCount
+{
+    return [items count];
+}
+
+- (WMWheelItem *)itemAtIndex:(int)index
+{
+    return [items objectAtIndex:index];
+}
+
+#pragma mark -
+#pragma mark WMWheelMenu Delegate
+
+- (void)wheel:(WMWheel *)wheel didRotateToItemAtIndex:(NSNumber *)index
+{
+    NSLog(@"---------Selected: %d", index.intValue);
 }
 
 @end

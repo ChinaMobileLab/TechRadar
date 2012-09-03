@@ -31,8 +31,8 @@
         self.clipsToBounds = NO;
         
 //        self.backgroundColor = [UIColor lightGrayColor];
-//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"net_bg.png"]];
-        UIImageView *bkgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"net_bg.png"]];
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
+        UIImageView *bkgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
         bkgImage.frame = CGRectMake(frame.size.width - bkgImage.frame.size.width, 0.0f
                                     , bkgImage.frame.size.width, bkgImage.frame.size.height);
         [self addSubview:bkgImage];
@@ -128,13 +128,4 @@
 
     return maskPath;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
 @end

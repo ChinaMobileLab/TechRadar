@@ -12,6 +12,6 @@
 
 @property (nonatomic) CGFloat radius;
 
-- (id)initWithRadius:(CGFloat)radius;
+- (id)initWithLevel:(NSInteger)level;
 
 @end

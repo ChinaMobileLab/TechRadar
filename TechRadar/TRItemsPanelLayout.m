@@ -21,11 +21,7 @@
 @implementation TRItemsPanelLayout
 
 @synthesize itemsPanel = _itemsPanel;
-
-- (BOOL)isLayouted
-{
-    return _isLayouted;
-}
+@synthesize isLayouted = _isLayouted;
 
 - (void)reset
 {

@@ -10,12 +10,10 @@
 
 @class TRItemsPanel;
 
-@interface TRItemsPanelLayout : NSObject {
-    BOOL _isLayouted;
-}
+@interface TRItemsPanelLayout : NSObject
 
 @property (nonatomic, assign) TRItemsPanel *itemsPanel;
-@property (nonatomic, readonly) BOOL isLayouted;
+@property (nonatomic, readonly, getter = isLayouted) BOOL isLayouted;
 
 - (void)layoutItems;
 - (void)reset;
