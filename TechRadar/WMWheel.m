@@ -106,7 +106,7 @@
 
 - (void)initOverlay
 {
-    UIImage *image = [UIImage imageNamed:@"wheel_overlay.png"];
+    UIImage *image = [UIImage imageNamed:@"wheel_front_control_panel.png"];
     UIImageView *overlayImage = [[UIImageView alloc] initWithImage:image];
     [self addSubview:overlayImage];
     [self bringSubviewToFront:overlayImage];

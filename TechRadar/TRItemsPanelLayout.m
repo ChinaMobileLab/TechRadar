@@ -11,6 +11,8 @@
 #import "TRItemsPanel.h"
 #import "TechRadarConstants.h"
 
+#define DEGREES_TO_RADIANS(degrees) ((M_PI * degrees)/ 180)
+
 @interface TRItemsPanelLayout ()
 
 @property (nonatomic, readonly) NSArray *items;
@@ -36,7 +38,7 @@
         do {
             CGFloat x = self.contentSize.width / 2.0f;
             CGFloat y = self.contentSize.height / 2.0f;
-            CGFloat radius = 40.0f + ((arc4random() % 40) - 20.0f);
+            CGFloat radius = 34.0f + ((arc4random() % 40) - 20.0f);
             //            CGFloat x = arc4random() % (int)self.contentSize.width;
             //            CGFloat y = arc4random() % (int)self.contentSize.height;
             
@@ -82,12 +84,17 @@
     CGRect rect = panel.bounds;
     
     UIBezierPath *path = panel.shapePath;
-    CGRect sideButtonRect = CGRectMake(TechRadarSideButtonX - TechRadarSideButtonWidth / 2.0f
-               , TechRadarSideButtonY - TechRadarSideButtonHeight / 2.0f
-               , TechRadarSideButtonWidth, TechRadarSideButtonHeight);
+//    CGRect sideButtonRect = CGRectMake(TechRadarSideButtonX - TechRadarSideButtonWidth / 2.0f
+//               , TechRadarSideButtonY - TechRadarSideButtonHeight / 2.0f
+//               , TechRadarSideButtonWidth, TechRadarSideButtonHeight);
 
-    UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRoundedRect:sideButtonRect cornerRadius:TechRadarSideButtonWidth / 2.0f];
-    
+    //UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRoundedRect:sideButtonRect cornerRadius:TechRadarSideButtonWidth / 2.0f];
+    UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
+                                   radius:200.0f
+                               startAngle:DEGREES_TO_RADIANS(-75.0f)
+                                 endAngle:DEGREES_TO_RADIANS(75.0f)
+                                clockwise:YES];
+    //[buttonPath addLineToPoint:<#(CGPoint)#>
     return (point.x >= rect.origin.x + radius && point.x <= rect.size.width - radius &&
             point.y >= rect.origin.y + radius && point.y <= rect.size.height - radius &&
             [self isPath:path containsPoint:point andRadius:radius] &&
