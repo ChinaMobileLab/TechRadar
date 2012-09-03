@@ -87,14 +87,16 @@
         image = [UIImage imageNamed:@"wheel_indicator.png"];
     }
     indicator = [[UIImageView alloc] initWithImage:image];
+    indicator.contentMode = UIViewContentModeRight;
     
     CGSize indicatorSize = indicator.frame.size;
-    CGRect indicatorFrame = CGRectMake(self.center.x,
-                                       self.center.y - indicatorSize.height / 2.0f,
-                                       indicatorSize.width,
+    CGRect indicatorFrame = CGRectMake(0,
+                                       0,
+                                       radius * 2,
                                        indicatorSize.height);
     indicator.frame = indicatorFrame;
-
+    indicator.center = self.center;
+    
     [self addSubview:indicator];
 
     _selectedIndex = 0;
@@ -113,23 +115,17 @@
 
 - (void)initGesture
 {
-    UISwipeGestureRecognizer *swipeUpGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    swipeUpGR.numberOfTouchesRequired = 1;
-    swipeUpGR.direction = UISwipeGestureRecognizerDirectionUp;
-//    [self addGestureRecognizer:swipeUpGR];
-    [swipeUpGR release];
-
-    UISwipeGestureRecognizer *swipeDownGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
-    swipeDownGR.numberOfTouchesRequired = 1;
-    swipeDownGR.direction = UISwipeGestureRecognizerDirectionDown;
-//    [self addGestureRecognizer:swipeDownGR];
-    [swipeDownGR release];
-    
     UIPanGestureRecognizer *panGR = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
     panGR.minimumNumberOfTouches = 1;
     panGR.maximumNumberOfTouches = 1;
     [self addGestureRecognizer:panGR];
     [panGR release];
+    
+    UITapGestureRecognizer *tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    tapGR.numberOfTouchesRequired = 1;
+    tapGR.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:tapGR];
+    [tapGR release];
 }
 
 - (void)dealloc
@@ -144,26 +140,32 @@
     return YES;
 }
 
-- (void)handleSwipe:(UISwipeGestureRecognizer *)sender
+- (void)handleTap:(UITapGestureRecognizer *)sender
 {
     if (sender.state == UIGestureRecognizerStateEnded) {
-        if (sender.direction == UISwipeGestureRecognizerDirectionUp) {
-            -- _selectedIndex;
-            if (_selectedIndex < 0) {
-                _selectedIndex = 0;
-                [self transformIndicatorTo:_minAngle animated:YES];
+        CGPoint touchedPoint = [sender locationInView:self];
+
+        CGFloat newX = touchedPoint.x;
+        CGFloat newY = touchedPoint.y - self.center.y;
+        
+        CGFloat a = sqrt(pow(newX - radius, 2.0f) + pow(newY, 2.0f));
+        CGFloat b = radius;
+        CGFloat c = sqrt(pow(newX, 2.0f) + pow(newY, 2.0f));
+        
+        CGFloat angleDelta =  acos((c * c + b * b - a * a) / (2.0f * b * c));
+        angleDelta = copysign(angleDelta, newY);
+        
+        __block CGFloat selectedAngle = _minAngle;
+        
+        [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            WMWheelItem *item = (WMWheelItem *)obj;
+            if (fabs(selectedAngle - angleDelta) > fabs(angleDelta - radians(item.angle))) {
+                selectedAngle = radians(item.angle);
+                _selectedIndex = idx;
             }
-            
-            [self transformIndicatorToIndex:_selectedIndex animated:YES];
-        } else if (sender.direction == UISwipeGestureRecognizerDirectionDown) {
-            ++ _selectedIndex;
-            if (_selectedIndex >= [items count]) {
-                _selectedIndex = [items count] - 1;
-                [self transformIndicatorTo:_maxAngle animated:YES];
-            }
-            
-            [self transformIndicatorToIndex:_selectedIndex animated:YES];
-        }
+        }];
+        
+        [self transformIndicatorToIndex:_selectedIndex animated:YES];
     }
 }
 
@@ -180,11 +182,9 @@
         
         CGFloat startedX = radius * cos(startedAngle);
         CGFloat startedY = radius * sin(startedAngle);
-//        NSLog(@"startedX = %f, startedY = %f", startedX, startedY);
         
         CGFloat newX = startedX + translate.x * scale;
         CGFloat newY = startedY + translate.y * scale;
-//        NSLog(@"newX = %f, newY = %f", newX, newY);
         
         CGFloat a = sqrt(pow(newX - radius, 2.0f) + pow(newY, 2.0f));
         CGFloat b = radius;
@@ -192,8 +192,6 @@
         
         CGFloat angleDelta =  acos((c * c + b * b - a * a) / (2.0f * b * c));
         angleDelta = copysign(angleDelta, newY);
-
-//        NSLog(@"a = %f, b = %f, c = %f, cos(A) = %f, A = %f", a, b, c, (c * c + b * b - a * a) / (2.0f * b * c), angleDelta);
         
         indicatorAngle = angleDelta;
         [self transformIndicatorTo:indicatorAngle animated:NO];
@@ -244,8 +242,8 @@
     } else if (angle > radians(_maxAngle)) {
         angle = radians(_maxAngle);
     }
-    
-    indicator.transform = CGAffineTransformConcat(CGAffineTransformConcat(CGAffineTransformMakeTranslation(radius / 2.0f, 0.0f), CGAffineTransformMakeRotation(angle)), CGAffineTransformMakeTranslation(-radius / 2.0f, 0.0f));
+  
+    indicator.transform = CGAffineTransformMakeRotation(angle);
 }
 
 @end

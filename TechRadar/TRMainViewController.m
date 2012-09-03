@@ -117,6 +117,7 @@
 
 #pragma mark -
 #pragma mark WMWheelMenu DataSource
+
 - (void)initItems
 {
     items = [[NSMutableArray alloc] initWithCapacity:4];

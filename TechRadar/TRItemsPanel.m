@@ -29,23 +29,8 @@
     if (self) {
         _items = [[NSMutableArray alloc] initWithCapacity:5];
         self.clipsToBounds = NO;
-        
-//        self.backgroundColor = [UIColor lightGrayColor];
-//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]];
-        UIImageView *bkgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
-        bkgImage.frame = CGRectMake(frame.size.width - bkgImage.frame.size.width, 0.0f
-                                    , bkgImage.frame.size.width, bkgImage.frame.size.height);
-        [self addSubview:bkgImage];
-        [self sendSubviewToBack:bkgImage];
-        
-        
-//        UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.bounds 
-//                                                       byRoundingCorners:UIRectCornerTopLeft
-//                                                             cornerRadii:CGSizeMake(10.0, 10.0)];
 
-//        self.layer.shadowOffset = CGSizeMake(5.0f, 5.0f);
-//        self.layer.shadowColor = [[UIColor grayColor] CGColor];
-//        self.layer.shadowPath = maskPath.CGPath;
+        self.backgroundColor = [UIColor clearColor];
         
         self.layout = [[TRItemsPanelLayout alloc] init];
         self.layout.itemsPanel = self;
@@ -85,7 +70,6 @@
 
 - (void)relayout
 {
-//    [self.layout reset];
     [self.layout layoutItems];
     
 //    NSMutableArray *pointArray = [[NSMutableArray alloc] initWithCapacity:self.items.count];

@@ -55,29 +55,28 @@
 //    view.backgroundColor = [UIColor colorWithRed:82.0f/255 green:139.0f/255 blue:217.0f/255 alpha:1.0f];
 //    528bd9
     self.view = view;
-    
     [view release];
+
+    UIImageView *bkgImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    [self.view addSubview:bkgImage];
+    [self.view sendSubviewToBack:bkgImage];
     
     self.holdPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(900.0f, 0.0f, [self radiusForWidth:1000.0f] - 900.0f, 748.0f)];
-//    self.holdPanel.backgroundColor = [UIColor darkGrayColor];
     [self.view addSubview:self.holdPanel];
     
     [panels addObject:self.holdPanel];
         
     self.assessPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(750.0f, 0.0f, [self radiusForWidth:900.0f] - 750.0f, 748.0f)];
-//    self.assessPanel.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.assessPanel];
     
     [panels addObject:self.assessPanel];
 
     self.trialPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(500.0f, 0.0f, [self radiusForWidth:750.0f] - 500.0f, 748.0f)];
-//    self.trialPanel.backgroundColor = [UIColor blueColor];
     [self.view addSubview:self.trialPanel];
     
     [panels addObject:self.trialPanel];
 
     self.adoptPanel = [[TRItemsPanel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, [self radiusForWidth:500.0f], 748.0f)];
-//    self.adoptPanel.backgroundColor = [UIColor greenColor];
     self.adoptPanel.delegate = self;
     [self.view addSubview:self.adoptPanel];
     
@@ -162,12 +161,6 @@
     return sqrt(pow(width, 2) + pow(374.0f, 2));
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
 - (void)relayout
 {
     [self.adoptPanel relayout];
@@ -182,12 +175,6 @@
     popover.popoverContentSize = CGSizeMake(300.0f, 300.0f);
     
     [popover presentPopoverFromRect:CGRectMake(100.0f, 100.0f, 50.0f, 50.0f) inView:self.adoptPanel permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

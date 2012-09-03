@@ -25,7 +25,7 @@
 
 - (TechRadarContent *)fetchTechRadarContent
 {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TechRadarContent"
 //                                              inManagedObjectContext:context];
 //    [fetchRequest setEntity:entity];
