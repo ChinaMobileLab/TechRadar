@@ -90,11 +90,15 @@
 
     //UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRoundedRect:sideButtonRect cornerRadius:TechRadarSideButtonWidth / 2.0f];
     UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
-                                   radius:200.0f
+                                   radius:210.0f
                                startAngle:DEGREES_TO_RADIANS(-75.0f)
                                  endAngle:DEGREES_TO_RADIANS(75.0f)
                                 clockwise:YES];
-    //[buttonPath addLineToPoint:<#(CGPoint)#>
+    [buttonPath addLineToPoint:CGPointMake(178.0f, 748)];
+    [buttonPath addLineToPoint:CGPointMake(0, 748)];
+    [buttonPath addLineToPoint:CGPointMake(0, 0)];
+    [buttonPath addLineToPoint:CGPointMake(178, 0)];
+    [buttonPath closePath];
     return (point.x >= rect.origin.x + radius && point.x <= rect.size.width - radius &&
             point.y >= rect.origin.y + radius && point.y <= rect.size.height - radius &&
             [self isPath:path containsPoint:point andRadius:radius] &&
