@@ -31,7 +31,6 @@
     CGFloat diameter = radius * 2.0f;
     self.frame = CGRectMake(self.center.x - radius, self.center.y - radius, diameter, diameter);
 
-//    self.layer.cornerRadius = radius;
 }
 
 - (CGFloat)radius

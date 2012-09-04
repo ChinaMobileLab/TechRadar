@@ -71,24 +71,12 @@
 - (void)relayout
 {
     [self.layout layoutItems];
-    
-//    NSMutableArray *pointArray = [[NSMutableArray alloc] initWithCapacity:self.items.count];
-//    for (int i = 0; i < self.items.count; i ++) {
-//        [pointArray addObject:[NSValue valueWithCGPoint:((UIView *)[_items objectAtIndex:i]).center]];
-//    }
-//
-//    [self.layout reset];
-//    [UIView animateWithDuration:0.5f animations:^{
-//        for (int i = 0; i < self.items.count; i ++) {
-//            ((UIView *)[_items objectAtIndex:i]).center = ((NSValue *)[pointArray objectAtIndex:i]).CGPointValue;
-//        }
-//    }];
+
 }
 
 - (void)layoutSubviews
 {
-//    CGFloat radius = sqrt(pow(self.frame.origin.x + self.frame.size.width, 2) + pow(374.0f, 2));
-    
+
     CAShapeLayer *maskLayer = [CAShapeLayer layer];
     maskLayer.frame = self.bounds;
     maskLayer.path = self.shapePath.CGPath;

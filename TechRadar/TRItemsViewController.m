@@ -52,8 +52,6 @@
 {
     UIView *view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     view.backgroundColor = [UIColor clearColor];
-//    view.backgroundColor = [UIColor colorWithRed:82.0f/255 green:139.0f/255 blue:217.0f/255 alpha:1.0f];
-//    528bd9
     self.view = view;
     [view release];
 
@@ -87,69 +85,7 @@
         [self.adoptPanel addItem:item];
         [item release];
     }
-//    TRItem *item = [[TRItem alloc] initWithRadius:50.0f];
-//    [item addTarget:self action:@selector(showPopover) forControlEvents:UIControlEventTouchUpInside];
-//    [self.adoptPanel addItem:item];
-//    [item release];
-    
-//    UIPanGestureRecognizer *panAdopt = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAdopt:)];
-//    panAdopt.minimumNumberOfTouches = 1;
-//    panAdopt.maximumNumberOfTouches = 1;
-//    [self.adoptPanel addGestureRecognizer:panAdopt];
-    
-    
-    
 }
-
-//- (void)panAdopt:(UIGestureRecognizer*)gestureRecognizer
-//{
-//    static CGRect adoptStartFrame;
-//    static CGRect trialStartFrame;
-//
-//    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
-//        adoptStartFrame = self.adoptPanel.frame;
-//        trialStartFrame = self.trialPanel.frame;
-//    }
-//    else if (gestureRecognizer.state == UIGestureRecognizerStateChanged || gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-//        CGFloat deltaX = [((UIPanGestureRecognizer *)gestureRecognizer) translationInView:self.view].x;
-//        
-//        CGRect currentFrame = adoptStartFrame;
-////        currentFrame.origin.x += deltaX;
-//        currentFrame.size.width += deltaX;
-//        self.adoptPanel.frame = currentFrame;
-//        
-//        currentFrame = trialStartFrame;
-//        currentFrame.origin.x += deltaX;
-//        currentFrame.size.width -= deltaX * 2;
-//        self.trialPanel.frame = currentFrame;
-//    }
-//    else if (gestureRecognizer.state == UIGestureRecognizerStateCancelled) {
-//        self.adoptPanel.frame = adoptStartFrame;
-//        self.trialPanel.frame = trialStartFrame;
-//    }
-////    
-////    if (gestureRecognizer.state == UIGestureRecognizerStateEnded) {
-////        CGFloat velocityX = [((UIPanGestureRecognizer *)gestureRecognizer) velocityInView:self.view].x;
-////        CGFloat deltaX = [((UIPanGestureRecognizer *)gestureRecognizer) translationInView:self.view].x;
-////        
-////        CGFloat speedX = fabs(velocityX / deltaX) * 5.0f;
-////        speedX = (velocityX > 0) ? speedX : - speedX;
-////        
-////        NSLog(@"Del: %f, Vel: %f, Spd: %f", deltaX, velocityX, speedX);
-////        
-////        [UIView animateWithDuration:0.5f animations:^{
-////            CGRect currentFrame = self.adoptPanel.frame;
-////            //        currentFrame.origin.x += deltaX;
-////            currentFrame.size.width += speedX;
-////            self.adoptPanel.frame = currentFrame;
-////            
-////            currentFrame = self.trialPanel.frame;
-////            currentFrame.origin.x += speedX;
-////            currentFrame.size.width -= speedX * 2;
-////            self.trialPanel.frame = currentFrame;
-////        }];
-////    }
-//}
 
 - (void)TRItemsPanelTapped:(TRItemsPanel *)panel
 {

@@ -84,12 +84,7 @@
     CGRect rect = panel.bounds;
     
     UIBezierPath *path = panel.shapePath;
-//    CGRect sideButtonRect = CGRectMake(TechRadarSideButtonX - TechRadarSideButtonWidth / 2.0f
-//               , TechRadarSideButtonY - TechRadarSideButtonHeight / 2.0f
-//               , TechRadarSideButtonWidth, TechRadarSideButtonHeight);
-
-    //UIBezierPath *buttonPath = [UIBezierPath bezierPathWithRoundedRect:sideButtonRect cornerRadius:TechRadarSideButtonWidth / 2.0f];
-    UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
+   UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
                                    radius:210.0f
                                startAngle:DEGREES_TO_RADIANS(-75.0f)
                                  endAngle:DEGREES_TO_RADIANS(75.0f)
