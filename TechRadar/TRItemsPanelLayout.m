@@ -39,8 +39,6 @@
             CGFloat x = self.contentSize.width / 2.0f;
             CGFloat y = self.contentSize.height / 2.0f;
             CGFloat radius = 34.0f + ((arc4random() % 40) - 20.0f);
-            //            CGFloat x = arc4random() % (int)self.contentSize.width;
-            //            CGFloat y = arc4random() % (int)self.contentSize.height;
             
             if ([self isPoint:CGPointMake(x, y) andRadius:radius insidePanel:self.itemsPanel]) {
                 [item setRadius:radius];
@@ -79,12 +77,8 @@
         && [self nearestDistanceForItem:item newCenter:newCenter] > currentNearestDistance;
 }
 
-- (BOOL)isPoint:(CGPoint)point andRadius:(CGFloat)radius insidePanel:(TRItemsPanel *)panel
-{
-    CGRect rect = panel.bounds;
-    
-    UIBezierPath *path = panel.shapePath;
-   UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
+- (UIBezierPath *)BuildLeftEdgePath {
+    UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
                                    radius:210.0f
                                startAngle:DEGREES_TO_RADIANS(-75.0f)
                                  endAngle:DEGREES_TO_RADIANS(75.0f)
@@ -94,6 +88,15 @@
     [buttonPath addLineToPoint:CGPointMake(0, 0)];
     [buttonPath addLineToPoint:CGPointMake(178, 0)];
     [buttonPath closePath];
+    return buttonPath;
+}
+
+- (BOOL)isPoint:(CGPoint)point andRadius:(CGFloat)radius insidePanel:(TRItemsPanel *)panel
+{
+    CGRect rect = panel.bounds;
+    
+    UIBezierPath *path = panel.shapePath;
+    UIBezierPath *buttonPath = [self BuildLeftEdgePath];
     return (point.x >= rect.origin.x + radius && point.x <= rect.size.width - radius &&
             point.y >= rect.origin.y + radius && point.y <= rect.size.height - radius &&
             [self isPath:path containsPoint:point andRadius:radius] &&

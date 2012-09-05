@@ -7,6 +7,7 @@
 //
 
 #import "TRItemsViewController.h"
+#import "TechRadarItemReader.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TRItemsViewController ()
@@ -33,6 +34,13 @@
         panels = [[NSMutableArray alloc] initWithCapacity:4];
     }
     return self;
+}
+
+- (void)initTRItems {
+    [TechRadarItemReader buildItems: ^(TRItem *item){
+        [self.adoptPanel addItem:item];
+    }];
+
 }
 
 - (void)dealloc
@@ -80,11 +88,7 @@
     
     [panels addObject:self.adoptPanel];
 
-    for (int i = 0; i < 10; i ++) {
-        TRItem *item = [[TRItem alloc] initWithLevel:1];
-        [self.adoptPanel addItem:item];
-        [item release];
-    }
+    [self initTRItems];
 }
 
 - (void)TRItemsPanelTapped:(TRItemsPanel *)panel
