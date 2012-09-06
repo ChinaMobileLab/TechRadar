@@ -16,4 +16,6 @@
 
 - (void)relayout;
 
+- (void)initTRItems: (int)panelNum;
+
 @end

@@ -11,10 +11,9 @@
 
 @implementation TechRadarItemReader
 
-+ (void)buildItems: (void (^)(TRItem*))handleItem{
++ (void)buildItems: (int) panelNum withBlock: (void (^)(TRItem*))handleItem{
 
-    //NSData *jsonData =  [[NSFileManager defaultManager] contentsAtPath:@"items.json"];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"items" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"items-%d", panelNum] ofType:@"json"];
     NSData *jsonData =  [NSData dataWithContentsOfFile: filePath];
     NSError *e;
     NSMutableArray *jsonItems = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&e];
@@ -25,7 +24,6 @@
         [item release];
     }
 
-    [filePath release];
 
 }
 

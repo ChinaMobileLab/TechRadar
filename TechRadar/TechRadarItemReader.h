@@ -11,5 +11,5 @@
 
 
 @interface TechRadarItemReader : NSObject
-+ (void) buildItems:(void (^)(TRItem*))handleItem;
++ (void) buildItems:(int) panelNum withBlock:(void (^)(TRItem*))handleItem;
 @end

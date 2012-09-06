@@ -29,6 +29,8 @@
 @property (nonatomic, assign) id<TRItemsPanelDelegate> delegate;
 
 - (void)addItem:(TRItem *)item;
-- (void)relayout;
 
+- (void)clearItems;
+
+- (void)relayout;
 @end

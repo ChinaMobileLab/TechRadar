@@ -158,6 +158,7 @@
 - (void)wheel:(WMWheel *)wheel didRotateToItemAtIndex:(NSNumber *)index
 {
     NSLog(@"---------Selected: %d", index.intValue);
+    [self.contentViewController initTRItems: index.intValue ];
 }
 
 @end

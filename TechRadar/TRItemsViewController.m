@@ -36,8 +36,10 @@
     return self;
 }
 
-- (void)initTRItems {
-    [TechRadarItemReader buildItems: ^(TRItem *item){
+- (void)initTRItems: (int)panelNum {
+    [self.adoptPanel clearItems];
+
+    [TechRadarItemReader buildItems:panelNum withBlock: ^(TRItem *item){
         [self.adoptPanel addItem:item];
     }];
 
@@ -88,7 +90,7 @@
     
     [panels addObject:self.adoptPanel];
 
-    [self initTRItems];
+    //[self initTRItems];
 }
 
 - (void)TRItemsPanelTapped:(TRItemsPanel *)panel

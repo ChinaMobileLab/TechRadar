@@ -68,10 +68,18 @@
     [self setNeedsLayout];
 }
 
+- (void)clearItems
+{
+    for (id item in _items ) {
+        [item removeFromSuperview];
+    }
+    [_items removeAllObjects];
+    [self relayout];
+}
+
 - (void)relayout
 {
     [self.layout layoutItems];
-
 }
 
 - (void)layoutSubviews
