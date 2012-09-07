@@ -10,10 +10,14 @@
 
 @class TRItemsPanel;
 
-@interface TRItemsPanelLayout : NSObject
+@interface TRItemsPanelLayout : NSObject {
+    NSArray *moveArray;
+}
 
 @property (nonatomic, assign) TRItemsPanel *itemsPanel;
 @property (nonatomic, readonly, getter = isLayouted) BOOL isLayouted;
+
+@property(nonatomic, assign) CGFloat centerX;
 
 - (void)layoutItems;
 - (void)reset;

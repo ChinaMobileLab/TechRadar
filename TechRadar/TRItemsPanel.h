@@ -24,13 +24,22 @@
 
 @property (nonatomic, readonly) NSArray *items;
 @property (nonatomic, retain) TRItemsPanelLayout *layout;
-@property (nonatomic, readonly) UIBezierPath *shapePath;
 
 @property (nonatomic, assign) id<TRItemsPanelDelegate> delegate;
+
+@property(nonatomic, assign) float rightEdgeRadius;
+
+@property(nonatomic, assign) float rightEdgeCenter;
+
+@property(nonatomic, retain) UIBezierPath *rightEdge;
+
+@property(nonatomic, retain) UIBezierPath *leftEdge;
 
 - (void)addItem:(TRItem *)item;
 
 - (void)clearItems;
 
 - (void)relayout;
+
+- (id)initWithFrame:(CGRect)frame leftEdge:(UIBezierPath *)theLeftEdge rightEdge:(UIBezierPath *)theRightEdge theCenterXOffset:(float)theCenterXOffset;
 @end

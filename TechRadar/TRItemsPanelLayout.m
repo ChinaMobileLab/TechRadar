@@ -12,6 +12,7 @@
 #import "TechRadarConstants.h"
 
 #define DEGREES_TO_RADIANS(degrees) ((M_PI * degrees)/ 180)
+#define ITEM_RADIUS 38.0f
 
 @interface TRItemsPanelLayout ()
 
@@ -24,6 +25,15 @@
 
 @synthesize itemsPanel = _itemsPanel;
 @synthesize isLayouted = _isLayouted;
+@synthesize centerX = _centerX;
+
+
+- (void)dealloc
+{
+    [moveArray release];
+    
+    [super dealloc];
+}
 
 - (void)reset
 {
@@ -33,20 +43,27 @@
         return;
     }
     
+    CGFloat x = self.centerX;
+    CGFloat y = self.contentSize.height / 2.0f;
+    CGPoint itemCenter = CGPointMake(x, y);
+    
     for (TRItem *item in self.items) {
-        BOOL set = NO;
-        do {
-            CGFloat x = self.contentSize.width / 2.0f;
-            CGFloat y = self.contentSize.height / 2.0f;
-            CGFloat radius = 34.0f + ((arc4random() % 40) - 20.0f);
-            
-            if ([self isPoint:CGPointMake(x, y) andRadius:radius insidePanel:self.itemsPanel]) {
-                [item setRadius:radius];
-                item.center = CGPointMake(x, y);
-                set = YES;
-            }
-        } while (!set);
+        [item setRadius:ITEM_RADIUS];
+        item.center = itemCenter;
     }
+    
+    CGFloat r = sqrtf(powf(ITEM_RADIUS, 2.0f)) / 2.0f;
+    
+    moveArray = [[NSArray alloc] initWithObjects:
+                          [NSValue valueWithCGPoint:CGPointMake(0.0f, -ITEM_RADIUS)]
+                          , [NSValue valueWithCGPoint:CGPointMake(r, -r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(ITEM_RADIUS, 0.0f)]
+                          , [NSValue valueWithCGPoint:CGPointMake(r, r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(0.0f, ITEM_RADIUS)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-r, r)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-ITEM_RADIUS, 0.0f)]
+                          , [NSValue valueWithCGPoint:CGPointMake(-r, -r)]
+                          , nil];
 }
 
 - (void)layoutItems
@@ -77,47 +94,20 @@
         && [self nearestDistanceForItem:item newCenter:newCenter] > currentNearestDistance;
 }
 
-- (UIBezierPath *)BuildLeftEdgePath {
-    UIBezierPath *buttonPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(-13.0f, 748.0f / 2.0f)
-                                   radius:210.0f
-                               startAngle:DEGREES_TO_RADIANS(-75.0f)
-                                 endAngle:DEGREES_TO_RADIANS(75.0f)
-                                clockwise:YES];
-    [buttonPath addLineToPoint:CGPointMake(178.0f, 748)];
-    [buttonPath addLineToPoint:CGPointMake(0, 748)];
-    [buttonPath addLineToPoint:CGPointMake(0, 0)];
-    [buttonPath addLineToPoint:CGPointMake(178, 0)];
-    [buttonPath closePath];
-    return buttonPath;
-}
-
 - (BOOL)isPoint:(CGPoint)point andRadius:(CGFloat)radius insidePanel:(TRItemsPanel *)panel
 {
     CGRect rect = panel.bounds;
     
-    UIBezierPath *path = panel.shapePath;
-    UIBezierPath *buttonPath = [self BuildLeftEdgePath];
+    UIBezierPath *path = panel.rightEdge;
+    UIBezierPath *buttonPath = panel.leftEdge;
     return (point.x >= rect.origin.x + radius && point.x <= rect.size.width - radius &&
             point.y >= rect.origin.y + radius && point.y <= rect.size.height - radius &&
-            [self isPath:path containsPoint:point andRadius:radius] &&
-            [self isPath:buttonPath notContainsPoint:point andRadius:radius]);
+            [self isPath:path containsPoint:point] &&
+            [self isPath:buttonPath notContainsPoint:point]);
 }
 
-- (BOOL)isPath:(UIBezierPath *)path containsPoint:(CGPoint)point andRadius:(CGFloat)radius
+- (BOOL)isPath:(UIBezierPath *)path containsPoint:(CGPoint)point
 {
-    CGFloat r = sqrtf(powf(radius, 2.0f)) / 2.0f;
-    
-    NSArray *moveArray = [NSArray arrayWithObjects:
-                          [NSValue valueWithCGPoint:CGPointMake(0.0f, -radius)]
-                          , [NSValue valueWithCGPoint:CGPointMake(r, -r)]
-                          , [NSValue valueWithCGPoint:CGPointMake(radius, 0.0f)]
-                          , [NSValue valueWithCGPoint:CGPointMake(r, r)]
-                          , [NSValue valueWithCGPoint:CGPointMake(0.0f, radius)]
-                          , [NSValue valueWithCGPoint:CGPointMake(-r, r)]
-                          , [NSValue valueWithCGPoint:CGPointMake(-radius, 0.0f)]
-                          , [NSValue valueWithCGPoint:CGPointMake(-r, -r)]
-                          , nil];
-    
     __block BOOL isContains = YES;
     [moveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CGPoint delta = ((NSValue *)obj).CGPointValue;
@@ -132,21 +122,8 @@
     return isContains;
 }
 
-- (BOOL)isPath:(UIBezierPath *)path notContainsPoint:(CGPoint)point andRadius:(CGFloat)radius
+- (BOOL)isPath:(UIBezierPath *)path notContainsPoint:(CGPoint)point
 {
-    CGFloat r = sqrtf(powf(radius, 2.0f)) / 2.0f;
-    
-    NSArray *moveArray = [NSArray arrayWithObjects:
-                          [NSValue valueWithCGPoint:CGPointMake(0.0f, -radius)]
-                          , [NSValue valueWithCGPoint:CGPointMake(r, -r)]
-                          , [NSValue valueWithCGPoint:CGPointMake(radius, 0.0f)]
-                          , [NSValue valueWithCGPoint:CGPointMake(r, r)]
-                          , [NSValue valueWithCGPoint:CGPointMake(0.0f, radius)]
-                          , [NSValue valueWithCGPoint:CGPointMake(-r, r)]
-                          , [NSValue valueWithCGPoint:CGPointMake(-radius, 0.0f)]
-                          , [NSValue valueWithCGPoint:CGPointMake(-r, -r)]
-                          , nil];
-    
     __block BOOL isContains = NO;
     [moveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         CGPoint delta = ((NSValue *)obj).CGPointValue;
@@ -163,7 +140,7 @@
 
 - (void)moveWithStep:(CGFloat)step
 {
-    NSArray *moveArray = [NSArray arrayWithObjects:
+    NSArray *stepMoveArray = [NSArray arrayWithObjects:
                           [NSValue valueWithCGPoint:CGPointMake(0.0f, -step)]
                           , [NSValue valueWithCGPoint:CGPointMake(step, -step)]
                           , [NSValue valueWithCGPoint:CGPointMake(step, 0.0f)]
@@ -180,7 +157,7 @@
         for (TRItem *item in self.items) {
             __block CGFloat currentNearestDistance = [self nearestDistance:item];
             
-            [moveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [stepMoveArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
                 CGPoint delta = ((NSValue *)obj).CGPointValue;
                 CGPoint newCenter = CGPointMake(item.center.x + delta.x, item.center.y + delta.y);
                 
