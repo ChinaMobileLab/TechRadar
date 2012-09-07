@@ -39,34 +39,36 @@
 }
 
 - (void)initTRItems: (int)panelNum {
-    [self.adoptPanel clearItems];
 
-    [TechRadarItemReader buildItems:panelNum withBlock: ^(id jsonItem){
+    [TechRadarItemReader buildItems:panelNum withBlock: ^(NSArray* jsonItemGroup){
 
-        TRItem *item = [[TRItem alloc] initWithLevel:1];
-        [self.adoptPanel addItem:item];
-        [item release];
-    }];
-    
-    [self.assessPanel clearItems];
-    [TechRadarItemReader buildItems:panelNum withBlock: ^(id jsonItem){
-        TRItem *item = [[TRItem alloc] initWithLevel:3];
-        [self.assessPanel addItem:item];
-        [item release];
-    }];
-    
-    [self.holdPanel clearItems];
-    [TechRadarItemReader buildItems:panelNum withBlock: ^(id jsonItem){
-        TRItem *item = [[TRItem alloc] initWithLevel:4];
-        [self.holdPanel addItem:item];
-        [item release];
-    }];
-    
-    [self.trialPanel clearItems];
-    [TechRadarItemReader buildItems:panelNum withBlock: ^(id jsonItem){
-        TRItem *item = [[TRItem alloc] initWithLevel:2];
-        [self.trialPanel addItem:item];
-        [item release];
+        [self.adoptPanel clearItems];
+        for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:0]){
+            TRItem *item = [[TRItem alloc] initWithLevel:1];
+            [self.adoptPanel addItem:item];
+            [item release];
+        }
+
+        [self.trialPanel clearItems];
+        for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:1]){
+            TRItem *item = [[TRItem alloc] initWithLevel:2];
+            [self.trialPanel addItem:item];
+            [item release];
+        }
+
+        [self.assessPanel clearItems];
+        for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:2]){
+            TRItem *item = [[TRItem alloc] initWithLevel:3];
+            [self.assessPanel addItem:item];
+            [item release];
+        }
+
+        [self.holdPanel clearItems];
+        for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:3]){
+            TRItem *item = [[TRItem alloc] initWithLevel:4];
+            [self.holdPanel addItem:item];
+            [item release];
+        }
     }];
 }
 

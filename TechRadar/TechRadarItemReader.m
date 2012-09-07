@@ -11,17 +11,14 @@
 
 @implementation TechRadarItemReader
 
-+ (void)buildItems: (int) panelNum withBlock: (void (^)(id))handleItem{
++ (void)buildItems: (int) panelNum withBlock: (void (^)(NSArray*))handleItem{
     NSLog(@"---------randering: items-%d", panelNum);
     NSString *filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"items-%d", panelNum] ofType:@"json"];
     NSData *jsonData =  [NSData dataWithContentsOfFile: filePath];
     NSError *e;
     NSMutableArray *jsonItems = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&e];
 
-    for (id jsonItem in jsonItems){
-        handleItem(jsonItem);
-    }
-
+    handleItem(jsonItems);
 }
 
 @end
