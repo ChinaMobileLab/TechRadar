@@ -11,6 +11,7 @@
 @interface TRItem : UIButton
 
 @property (nonatomic) CGFloat radius;
+@property (nonatomic) NSString *itemTitle;
 
 - (id)initWithLevel:(NSInteger)level;
 

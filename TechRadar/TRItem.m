@@ -9,7 +9,15 @@
 #import "TRItem.h"
 #import <QuartzCore/QuartzCore.h>
 
-@implementation TRItem
+@implementation TRItem {
+
+
+@private
+    NSString *_itemTitle;
+}
+
+@synthesize itemTitle = _itemTitle;
+
 
 - (id)initWithLevel:(NSInteger)level
 {
@@ -18,10 +26,15 @@
         self.backgroundColor = [UIColor clearColor];
         
         UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", level]]];
-        
-        self.radius = 38.0f;
+
+        UITextField *title = [[UITextField alloc] initWithFrame:CGRectMake(20.0f, 32.0f, 250.0f, 40.0f)];
+        title.text = @"short title";
+        [title setTextColor:[UIColor whiteColor]];
+        self.radius = 138.0f;
         [self addSubview:image];
+        [self addSubview:title];
         [image release];
+        [title release];
     }
     return self;
 }
@@ -37,5 +50,8 @@
 {
     return self.frame.size.width;
 }
+
+
+
 
 @end

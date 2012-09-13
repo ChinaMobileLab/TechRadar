@@ -52,7 +52,7 @@
         item.center = itemCenter;
     }
     
-    CGFloat r = sqrtf(powf(ITEM_RADIUS, 2.0f)) / 2.0f;
+    CGFloat r = sqrtf(powf(ITEM_RADIUS, 2.0f) * 2.0f) / 2.0f;
     
     moveArray = [[NSArray alloc] initWithObjects:
                           [NSValue valueWithCGPoint:CGPointMake(0.0f, -ITEM_RADIUS)]

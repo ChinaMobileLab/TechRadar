@@ -180,7 +180,7 @@
 - (void)showPopover
 {
     UIViewController *contentController = [[UIViewController alloc] init];
-    
+
     UIPopoverController *popover = [[UIPopoverController alloc] initWithContentViewController:contentController];
     
     popover.popoverContentSize = CGSizeMake(300.0f, 300.0f);
@@ -206,5 +206,7 @@
     [buttonPath closePath];
     return buttonPath;
 }
+
+
 
 @end

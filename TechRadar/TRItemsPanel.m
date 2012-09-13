@@ -54,8 +54,8 @@
         self.rightEdge = theRightEdge;
         _items = [[NSMutableArray alloc] initWithCapacity:5];
         self.clipsToBounds = NO;
-        self.layer.borderWidth = 1.0f;
-        self.layer.borderColor = [[UIColor whiteColor] CGColor];
+//        self.layer.borderWidth = 1.0f;
+//        self.layer.borderColor = [[UIColor whiteColor] CGColor];
 
         self.backgroundColor = [UIColor clearColor];
 
@@ -128,15 +128,15 @@
 {
     [super drawRect:rect];
     
-    CGContextRef myContext = UIGraphicsGetCurrentContext();
-    
-    CGContextSetStrokeColorWithColor(myContext, [[UIColor redColor] CGColor]);
-    CGContextAddPath(myContext, [self.leftEdge CGPath]);
-    CGContextStrokePath(myContext);
-
-    CGContextSetStrokeColorWithColor(myContext, [[UIColor blueColor] CGColor]);
-    CGContextAddPath(myContext, [self.rightEdge CGPath]);
-    CGContextStrokePath(myContext);
+//    CGContextRef myContext = UIGraphicsGetCurrentContext();
+//
+//    CGContextSetStrokeColorWithColor(myContext, [[UIColor redColor] CGColor]);
+//    CGContextAddPath(myContext, [self.leftEdge CGPath]);
+//    CGContextStrokePath(myContext);
+//
+//    CGContextSetStrokeColorWithColor(myContext, [[UIColor blueColor] CGColor]);
+//    CGContextAddPath(myContext, [self.rightEdge CGPath]);
+//    CGContextStrokePath(myContext);
     
 //    CGContextRelease(myContext);
 }
