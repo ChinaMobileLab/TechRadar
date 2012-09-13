@@ -100,8 +100,8 @@
     [self addSubview:indicator];
 
     _selectedIndex = 0;
-    indicatorAngle = radians(((WMWheelItem *)[items objectAtIndex:0]).angle);
-    [self transformIndicatorTo:indicatorAngle animated:YES];
+//    indicatorAngle = radians(((WMWheelItem *)[items objectAtIndex:0]).angle);
+    [self transformIndicatorToIndex:_selectedIndex animated:YES];
 }
 
 - (void)initOverlay
