@@ -13,6 +13,6 @@
 @property (nonatomic) CGFloat radius;
 @property (nonatomic) NSString *itemTitle;
 
-- (id)initWithLevel:(NSInteger)level;
+- (id)initWithLevel:(NSInteger)level title:(NSString *)itemTitle;
 
 @end

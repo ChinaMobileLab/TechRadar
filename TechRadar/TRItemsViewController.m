@@ -43,29 +43,32 @@
     [TechRadarItemReader buildItems:panelNum withBlock: ^(NSArray* jsonItemGroup){
 
         [self.adoptPanel clearItems];
-        for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:0]){
-            TRItem *item = [[TRItem alloc] initWithLevel:1];
+        for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:0]){            
+            TRItem *item = [[TRItem alloc] initWithLevel:1 title: [jsonItem objectForKey:@"title"]]; 
             [self.adoptPanel addItem:item];
             [item release];
         }
 
         [self.trialPanel clearItems];
         for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:1]){
-            TRItem *item = [[TRItem alloc] initWithLevel:2];
+            TRItem *item = [[TRItem alloc] initWithLevel:2 title: [jsonItem objectForKey:@"title"]]; 
+            [item setItemTitle:[jsonItem objectForKey:@"title"]];
             [self.trialPanel addItem:item];
             [item release];
         }
 
         [self.assessPanel clearItems];
         for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:2]){
-            TRItem *item = [[TRItem alloc] initWithLevel:3];
+            TRItem *item = [[TRItem alloc] initWithLevel:3 title: [jsonItem objectForKey:@"title"]]; 
+            [item setItemTitle:[jsonItem objectForKey:@"title"]];
             [self.assessPanel addItem:item];
             [item release];
         }
 
         [self.holdPanel clearItems];
         for (NSDictionary *jsonItem in [jsonItemGroup objectAtIndex:3]){
-            TRItem *item = [[TRItem alloc] initWithLevel:4];
+            TRItem *item = [[TRItem alloc] initWithLevel:4 title: [jsonItem objectForKey:@"title"]]; 
+            [item setItemTitle:[jsonItem objectForKey:@"title"]];
             [self.holdPanel addItem:item];
             [item release];
         }

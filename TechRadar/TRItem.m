@@ -19,7 +19,7 @@
 @synthesize itemTitle = _itemTitle;
 
 
-- (id)initWithLevel:(NSInteger)level
+- (id)initWithLevel:(NSInteger)level title:(NSString *)itemTitle
 {
     self = [super initWithFrame:CGRectZero];
     if (self) {
@@ -28,11 +28,13 @@
         UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d.png", level]]];
 
         UITextField *title = [[UITextField alloc] initWithFrame:CGRectMake(20.0f, 32.0f, 250.0f, 40.0f)];
-        title.text = @"short title";
+        title.text = [itemTitle copy];
         [title setTextColor:[UIColor whiteColor]];
         self.radius = 138.0f;
         [self addSubview:image];
         [self addSubview:title];
+        
+        [itemTitle release];
         [image release];
         [title release];
     }
